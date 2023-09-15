@@ -10,18 +10,32 @@ public class PlayerMovement : MonoBehaviour
 
     public float upSpeed = 10;
     private bool onGroundState = true;
+    private SpriteRenderer marioSprite;
+    private bool faceRightState = true;
+
     private Rigidbody2D marioBody;
     // Start is called before the first frame update
     void Start()
     {
         Application.targetFrameRate = 30;
         marioBody = GetComponent<Rigidbody2D>();
+        marioSprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) && faceRightState)
+        {
+            faceRightState = false;
+            marioSprite.flipX = true;
+        }
+
+        if ((Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) && !faceRightState)
+        {
+            faceRightState = true;
+            marioSprite.flipX = false;
+        }
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -30,28 +44,29 @@ public class PlayerMovement : MonoBehaviour
             onGroundState = true;
     }
 
-    void FixedUpdate() 
+    void FixedUpdate()
     {
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
-       
-        
-        if(Mathf.Abs(moveHorizontal)>0) {
+
+
+        if (Mathf.Abs(moveHorizontal) > 0)
+        {
 
             Vector2 movement = new Vector2(moveHorizontal, 0);
 
             if (marioBody.velocity.magnitude < maxSpeed)
                 marioBody.AddForce(movement * speed);
-            
+
         }
         //stop
 
-        if(Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
+        if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
         {
             //stop
             marioBody.velocity = Vector2.zero;
         }
 
-        if(Input.GetKeyDown(KeyCode.Space) && onGroundState)
+        if (Input.GetKeyDown(KeyCode.Space) && onGroundState)
         {
             marioBody.AddForce(Vector2.up * upSpeed, ForceMode2D.Impulse);
             onGroundState = false;
@@ -62,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("Collided with goomba");
         }

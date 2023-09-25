@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     public AudioSource marioAudio;
     public AudioClip marioDeath;
     public float deathImpulse;
-    
+
     [System.NonSerialized]
     public bool alive = true;
     public Transform gameCamera;
@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
         marioSprite = GetComponent<SpriteRenderer>();
         GameOverScreen.SetActive(false);
         //update animator state
-        marioAnimator.SetBool("onGround",onGroundState);
+        marioAnimator.SetBool("onGround", onGroundState);
     }
 
     // Update is called once per frame
@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
         {
             faceRightState = false;
             marioSprite.flipX = true;
-            if(marioBody.velocity.x > 0.1f)
+            if (marioBody.velocity.x > 0.1f)
                 marioAnimator.SetTrigger("onSkid");
         }
 
@@ -59,24 +59,26 @@ public class PlayerMovement : MonoBehaviour
         {
             faceRightState = true;
             marioSprite.flipX = false;
-            if(marioBody.velocity.x < -0.1f)
+            if (marioBody.velocity.x < -0.1f)
                 marioAnimator.SetTrigger("onSkid");
         }
-        marioAnimator.SetFloat("xSpeed",Mathf.Abs(marioBody.velocity.x));
+        marioAnimator.SetFloat("xSpeed", Mathf.Abs(marioBody.velocity.x));
     }
+
+    int collisionLayerMask = ((1 << 3) | (1 << 6) | (1 << 7));
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("Ground"))
+        if (((collisionLayerMask & (1 << col.transform.gameObject.layer)) > 0) & !onGroundState)
             onGroundState = true;
-            //update animator state
-            marioAnimator.SetBool("onGround",onGroundState);
-            
+        //update animator state
+        marioAnimator.SetBool("onGround", onGroundState);
+
     }
 
     void FixedUpdate()
     {
-        if (alive) 
+        if (alive)
         {
             float moveHorizontal = Input.GetAxisRaw("Horizontal");
 
@@ -97,16 +99,19 @@ public class PlayerMovement : MonoBehaviour
                 //stop
                 marioBody.velocity = Vector2.zero;
             }
-
+            Debug.Log("fix update");
+            Debug.Log(onGroundState);
+            Debug.Log("call func");
             if (Input.GetKeyDown(KeyCode.Space) && onGroundState)
             {
                 marioBody.AddForce(Vector2.up * upSpeed, ForceMode2D.Impulse);
                 onGroundState = false;
+                Debug.Log(onGroundState);
                 //update animator state
-                marioAnimator.SetBool("onGround",onGroundState);
+                marioAnimator.SetBool("onGround", onGroundState);
             }
         }
-        
+
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -145,21 +150,21 @@ public class PlayerMovement : MonoBehaviour
         marioBody.velocity = Vector2.zero;
 
         //remove Game Over Screen
-        scoreText.transform.localPosition = new Vector3(-556.49f,459,0);
-        RestartButton.transform.localPosition = new Vector3(866,454,0);
+        scoreText.transform.localPosition = new Vector3(-556.49f, 459, 0);
+        RestartButton.transform.localPosition = new Vector3(866, 454, 0);
         GameOverScreen.SetActive(false);
         marioAnimator.SetTrigger("gameRestart");
         alive = true;
-        gameCamera.transform.localPosition = new Vector3(1.69f,0,-10);
+        gameCamera.transform.localPosition = new Vector3(1.69f, 0, -10);
     }
 
     void GameOverScene()
     {
         Time.timeScale = 0.0f;
         GameOverScreen.SetActive(true);
-        RestartButton.transform.localPosition = new Vector3(-68,-143,0.0f);
-        scoreText.transform.localPosition = new Vector3(37,-20,0);
-    
+        RestartButton.transform.localPosition = new Vector3(-68, -143, 0.0f);
+        scoreText.transform.localPosition = new Vector3(37, -20, 0);
+
     }
 
     void PlayJumpSound()
@@ -169,6 +174,7 @@ public class PlayerMovement : MonoBehaviour
 
     void PlayDeathImpluse()
     {
+        // marioBody.velocity = Vector2.zero;
         marioBody.AddForce(Vector2.up * deathImpulse, ForceMode2D.Impulse);
     }
 }

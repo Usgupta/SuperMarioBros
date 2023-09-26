@@ -99,14 +99,15 @@ public class PlayerMovement : MonoBehaviour
                 //stop
                 marioBody.velocity = Vector2.zero;
             }
-            Debug.Log("fix update");
-            Debug.Log(onGroundState);
-            Debug.Log("call func");
+            // Debug.Log("fix update");
+            // Debug.Log(onGroundState);
+            // Debug.Log("call func");
             if (Input.GetKeyDown(KeyCode.Space) && onGroundState)
-            {
+            {   
+                marioBody.velocity.Set(marioBody.velocity.x,0);
                 marioBody.AddForce(Vector2.up * upSpeed, ForceMode2D.Impulse);
                 onGroundState = false;
-                Debug.Log(onGroundState);
+                // Debug.Log(onGroundState);
                 //update animator state
                 marioAnimator.SetBool("onGround", onGroundState);
             }
@@ -118,9 +119,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            // Debug.Log("Collided with goomba");
+            Debug.Log("Collided with goomba");
             marioAnimator.Play("mario-die");
-            marioAudio.PlayOneShot(marioDeath);
             alive = false;
         }
     }
@@ -174,7 +174,8 @@ public class PlayerMovement : MonoBehaviour
 
     void PlayDeathImpluse()
     {
-        // marioBody.velocity = Vector2.zero;
+        marioBody.velocity = Vector2.zero;
         marioBody.AddForce(Vector2.up * deathImpulse, ForceMode2D.Impulse);
+        marioAudio.PlayOneShot(marioDeath);
     }
 }

@@ -22,6 +22,9 @@ public class PlayerMovement : MonoBehaviour
     public GameObject enemies;
     public JumpOverGoomba jumpOverGoomba;
 
+    public QuestionBox questionBox;
+
+
     public GameObject GameOverScreen;
     public GameObject RestartButton;
     public Animator marioAnimator;
@@ -72,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
         if (((collisionLayerMask & (1 << col.transform.gameObject.layer)) > 0) & !onGroundState)
             onGroundState = true;
         //update animator state
+
         marioAnimator.SetBool("onGround", onGroundState);
 
     }
@@ -155,7 +159,9 @@ public class PlayerMovement : MonoBehaviour
         GameOverScreen.SetActive(false);
         marioAnimator.SetTrigger("gameRestart");
         alive = true;
+
         gameCamera.transform.localPosition = new Vector3(1.69f, 0, -10);
+        GoToEntryAnimationStateForAllPrefabInstances();
     }
 
     void GameOverScene()
@@ -177,5 +183,26 @@ public class PlayerMovement : MonoBehaviour
         marioBody.velocity = Vector2.zero;
         marioBody.AddForce(Vector2.up * deathImpulse, ForceMode2D.Impulse);
         marioAudio.PlayOneShot(marioDeath);
+    }
+
+    public void GoToEntryAnimationStateForAllPrefabInstances()
+    {
+        // Get all of the prefab instances in the current scene.
+        QuestionBox[] prefabInstances = GameObject.FindObjectsOfType<QuestionBox>();
+
+        // Iterate over all of the prefab instances and set their entry animation state.
+        foreach (QuestionBox prefabInstance in prefabInstances)
+        {
+            if (prefabInstance.GetComponent<Animator>() != null)
+            {
+                prefabInstance.QuestionBoxAnimator.SetBool("isBoxStatic",false);
+                prefabInstance.boxIsStatic = false;
+                prefabInstance.QuestionBoxCoinAnimator.Play("coin-spawn");
+                Debug.Log("restarting arudio check");
+                Debug.Log(prefabInstance.QuestionBoxCoinAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime);
+                Debug.Log("restarting arudio check done");
+
+            }
+        }
     }
 }

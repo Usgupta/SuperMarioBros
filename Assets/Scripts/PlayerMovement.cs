@@ -197,9 +197,11 @@ public class PlayerMovement : MonoBehaviour
             {
                 prefabInstance.QuestionBoxAnimator.SetBool("isBoxStatic",false);
                 prefabInstance.boxIsStatic = false;
-                prefabInstance.QuestionBoxCoinAnimator.Play("coin-spawn");
+                prefabInstance.QuestionBoxBody.bodyType = RigidbodyType2D.Dynamic;
+                prefabInstance.QuestionBoxCoinAnimator.StopPlayback();
+                // prefabInstance.QuestionBoxCoinAnimator.Play("coin-spawn");
                 Debug.Log("restarting arudio check");
-                Debug.Log(prefabInstance.QuestionBoxCoinAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime);
+                // Debug.Log(prefabInstance.QuestionBoxCoinAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime);
                 Debug.Log("restarting arudio check done");
 
             }

@@ -370,6 +370,7 @@ MonoBehaviour:
   QuestionBoxAnimator: {fileID: 2782725230902112418}
   QuestionBoxCoinAnimator: {fileID: 8417301122831341269}
   boxIsStatic: 0
+  QuestionBoxBody: {fileID: 0}
   playerMovement: {fileID: 0}
 --- !u!82 &2695189202442383390
 AudioSource:
@@ -539,7 +540,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300146, guid: 82bc45c4496284f4c823d1b837f65ec4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

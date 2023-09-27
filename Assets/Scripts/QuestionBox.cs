@@ -12,7 +12,7 @@ public class QuestionBox : MonoBehaviour
     public bool boxIsStatic = false;
     // public AudioClip coinSpawnAudio;
     // Start is called before the first frame update
-    private Rigidbody2D QuestionBoxBody;
+    public Rigidbody2D QuestionBoxBody;
     private SpriteRenderer questionBoxSprite;
 
     public PlayerMovement playerMovement;
@@ -58,6 +58,7 @@ public class QuestionBox : MonoBehaviour
 
     void PlayCoinSpawn(){
         QuestionBoxCoinAnimator.Play("coin-spawn");
+        
         questionBoxAudio.PlayOneShot(questionBoxAudio.clip);
         Debug.Log("should play now");
         Debug.Log(QuestionBoxCoinAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime);

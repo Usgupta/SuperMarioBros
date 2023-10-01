@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     // public GameObject RestartButton;
     public Animator marioAnimator;
     public AudioSource marioAudio;
-    public AudioClip marioDeath;
+    public AudioSource marioDeath;
     public float deathImpulse;
 
     [System.NonSerialized]
@@ -246,7 +246,7 @@ public class PlayerMovement : MonoBehaviour
     {
         marioBody.velocity = Vector2.zero;
         marioBody.AddForce(Vector2.up * deathImpulse, ForceMode2D.Impulse);
-        marioAudio.PlayOneShot(marioDeath);
+        marioDeath.PlayOneShot(marioDeath.clip);
     }
 
     public void GoToEntryAnimationStateForAllPrefabInstances()

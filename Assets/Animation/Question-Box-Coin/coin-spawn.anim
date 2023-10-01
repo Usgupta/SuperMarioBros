@@ -871,7 +871,7 @@ AnimationClip:
   - time: 0.62083334
     functionName: TriggerIntEvent
     data: 
-    objectReferenceParameter: {fileID: 0}
+    objectReferenceParameter: {fileID: 11500000, guid: 2107a0f7836d8471ab2d36821a1b7403, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

@@ -217,7 +217,7 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: -1359660573989903279}
-  m_UserColorIndex: 0
+  m_UserColorIndex: 1
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
@@ -232,12 +232,21 @@ AudioMixerController:
   m_MasterGroup: {fileID: 24300002}
   m_Snapshots:
   - {fileID: 24500006}
+  - {fileID: 6424186574918453012}
   m_StartSnapshot: {fileID: 24500006}
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters: []
   m_AudioMixerGroupViews:
+  - guids:
+    - 930737458b2004ed7b646bb06c2a1f49
+    - 73562d685b1504678b3ff74b7cd201b8
+    - 44d0593e0d18448ab9c233dca5838fab
+    - ca804c1c6269740e6ab21ab6fae2a4ba
+    - 2922c8dd2b02040bca0b59d221547b8e
+    - 06e5eb58e297142828fa781ee3099610
+    name: SFX
   - guids:
     - 930737458b2004ed7b646bb06c2a1f49
     - 73562d685b1504678b3ff74b7cd201b8
@@ -248,8 +257,8 @@ AudioMixerController:
     - 62b3e8840d30441358ab6a1020156b25
     - 2f472ba00ae3c4a9f9e44128acc5fb60
     - 44d0593e0d18448ab9c233dca5838fab
-    name: View
-  m_CurrentViewIndex: 0
+    name: All
+  m_CurrentViewIndex: 1
   m_TargetSnapshot: {fileID: 24500006}
 --- !u!243 &24300002
 AudioMixerGroupController:
@@ -293,7 +302,7 @@ AudioMixerSnapshotController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Snapshot
+  m_Name: Default
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: f6d3886454e784c70bee9725bc9f7e72
   m_FloatValues:
@@ -321,7 +330,7 @@ AudioMixerGroupController:
   - {fileID: -4131803180805326238}
   - {fileID: -4876411067408790451}
   - {fileID: 1746227647049039871}
-  m_UserColorIndex: 0
+  m_UserColorIndex: 4
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
@@ -340,7 +349,7 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 7023060036728456703}
-  m_UserColorIndex: 0
+  m_UserColorIndex: 1
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
@@ -360,7 +369,7 @@ AudioMixerGroupController:
   m_Effects:
   - {fileID: -4904462653438422450}
   - {fileID: -2132667458550040358}
-  m_UserColorIndex: 0
+  m_UserColorIndex: 1
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
@@ -411,6 +420,25 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!245 &6424186574918453012
+AudioMixerSnapshotController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Loud
+  m_AudioMixer: {fileID: 24100000}
+  m_SnapshotID: 887bfba2245b64444854a0961c7328e0
+  m_FloatValues:
+    a16f30a373deb494f80a9ee04d77c142: 1
+    2b3c0e9565c3e4e028b331efde6e489e: -3.187063
+    61eb54a5e7dc5490e95c71813f6bcdcb: 5.8
+    998bc22ac991c4f36885adee4c66f0a4: 2.090601
+    1841d58db445b4f038ecccd7eafa08bd: 2000
+    1a0f19fe61c764368a13aa09bf912309: -65
+    85cf50bf01eaa437bb3bf7a1d0c33247: 0
+    43b4fddfe0175423f94b51453e9c3cbc: 2.4583216
+  m_TransitionOverrides: {}
 --- !u!244 &7023060036728456703
 AudioMixerEffectController:
   m_ObjectHideFlags: 3

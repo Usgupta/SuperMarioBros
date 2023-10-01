@@ -8,16 +8,17 @@ public class JumpOverGoomba : MonoBehaviour
 {
 
     public Transform enemyLocation;
-    public TextMeshProUGUI scoreText;
+    // public TextMeshProUGUI scoreText;
     private bool onGroundState;
 
-    [System.NonSerialized]
-    public int score = 0;
+    // [System.NonSerialized]
+    // public int score = 0;
 
     private bool countScoreState = false;
     public Vector3 boxSize;
     public float maxDistance;
     public LayerMask layerMask;
+    public GameManager gameManager;
 
 
     // Start is called before the first frame update
@@ -36,7 +37,7 @@ public class JumpOverGoomba : MonoBehaviour
     {
         //mario jumps
         // Debug.Log(onGroundCheck());
-        if (Input.GetKeyDown(KeyCode.Space) && onGroundCheck())
+        if (onGroundCheck())
         {
             onGroundState = false;
             countScoreState = true;
@@ -48,8 +49,9 @@ public class JumpOverGoomba : MonoBehaviour
             if (Mathf.Abs(transform.position.x - enemyLocation.position.x) < 0.5f)
             {
                 countScoreState = false;
-                score++;
-                scoreText.text = "Score: " + score.ToString();
+                // gameManager.IncreaseScore(1);
+                // score++;
+                // scoreText.text = "Score: " + score.ToString();
                 // Debug.Log(score);
             }
         }
@@ -79,4 +81,6 @@ public class JumpOverGoomba : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawCube(transform.position - transform.up * maxDistance, boxSize);
     }
+
+
 }

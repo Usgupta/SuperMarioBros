@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class ActionManager : MonoBehaviour
 {
     public MarioActions marioActions;
+    public UnityEvent jump;
+    public UnityEvent jumpHold;
+    public UnityEvent<int> moveCheck;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,31 +29,75 @@ public class ActionManager : MonoBehaviour
 
     public void onJumpHoldAction(InputAction.CallbackContext context){
         if(context.started)
-            Debug.Log("Jumphold was started");
+            {
+                // Debug.Log("Jumphold was started");
+            }
         else if(context.performed)
-            Debug.Log("Jumphold was pefermoed");
-        else if(context.canceled)
-            Debug.Log("Jumphold was cancelled");
+        {   
+            jumpHold.Invoke();
+            // Debug.Log("Jumphold was pefermoed");
+        }    
+            
+        // else if(context.canceled)
+            // Debug.Log("Jumphold was cancelled");
     }
 
     public void onJumpAction(InputAction.CallbackContext context){
         if(context.started)
-            Debug.Log("Jump was started");
+        {
+            // Debug.Log("Jump was started");
+        }
         else if(context.performed)
+        {
+            jump.Invoke();
             Debug.Log("Jump was pefermoed");
-        else if(context.canceled)
-            Debug.Log("Jump was cancelled");
+        }
+            
+        // else if(context.canceled)
+        //     Debug.Log("Jump was cancelled");
     }
 
-    public void onMoveAction(InputAction.CallbackContext context){
+    public void onMoveAction(InputAction.CallbackContext context)
+    {
         if(context.started)
         {
-            Debug.Log("move was started");
-            float move = context.ReadValue<float>();
-            Debug.Log($"move amount {move}");
+            // Debug.Log("move was started");
+            int faceRight = context.ReadValue<float>() >0? 1:-1;
+            moveCheck.Invoke(faceRight);
+            // Debug.Log($"move amount {fa}");
         }
-        // if(context.canceled){
-        //     Debug.Log("move stopped");
-        // }
+        if(context.canceled){
+            // Debug.Log("move stopped");
+            moveCheck.Invoke(0);
+
+        }
+    }
+
+    public void OnClickAction(InputAction.CallbackContext context)
+    {
+        if(context.started)
+        {
+            // Debug.Log("mouse click started");
+        }    
+        else if(context.performed)
+        {
+            Debug.Log("mouse click performed");
+        }
+
+        // else if( context.canceled)
+        //     Debug.Log("mouse click cancelled");
+
+    }
+
+    public void OnPointAction(InputAction.CallbackContext context)
+    {
+       if(context.performed)
+        {
+            
+            Vector2 point = context.ReadValue<Vector2>();
+            // Debug.Log($"mouse pos {point}");
+        }
+
+
     }
 }

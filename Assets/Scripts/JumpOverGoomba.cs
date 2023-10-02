@@ -37,24 +37,24 @@ public class JumpOverGoomba : MonoBehaviour
     {
         //mario jumps
         // Debug.Log(onGroundCheck());
-        if (onGroundCheck())
-        {
-            onGroundState = false;
-            countScoreState = true;
-        }
+        // if (onGroundCheck())
+        // {
+        //     onGroundState = false;
+        //     countScoreState = true;
+        // }
 
         //when mario jumps, it is over Goomba and we have not updated the score
-        if (!onGroundState && countScoreState)
-        {
-            if (Mathf.Abs(transform.position.x - enemyLocation.position.x) < 0.5f)
-            {
-                countScoreState = false;
-                // gameManager.IncreaseScore(1);
-                // score++;
-                // scoreText.text = "Score: " + score.ToString();
-                // Debug.Log(score);
-            }
-        }
+        // if (!onGroundState && countScoreState)
+        // {
+        //     if (Mathf.Abs(transform.position.x - enemyLocation.position.x) < 0.5f)
+        //     {
+        //         countScoreState = false;
+        //         // gameManager.IncreaseScore(1);
+        //         // score++;
+        //         // scoreText.text = "Score: " + score.ToString();
+        //         // Debug.Log(score);
+        //     }
+        // }
     }
 
     void OnCollisionEnter2D(UnityEngine.Collision2D col)
@@ -63,15 +63,21 @@ public class JumpOverGoomba : MonoBehaviour
     }
 
     private bool onGroundCheck()
+
     {
+
+       ;
         if (Physics2D.BoxCast(transform.position, boxSize, 0, -transform.up, maxDistance, layerMask))
         {
-            // Debug.Log("on ground");
+            Debug.Log("physics on ground");
+            RaycastHit2D raycastHit2D = Physics2D.BoxCast(transform.position, boxSize, 0, -transform.up, maxDistance, layerMask);
+            Debug.Log("collision detecintg");
+            Debug.Log(raycastHit2D.collider.gameObject.tag.ToString());
             return true;
         }
         else
         {
-            // Debug.Log("not on ground");
+            Debug.Log("not on ground");
             return false;
         }
     }

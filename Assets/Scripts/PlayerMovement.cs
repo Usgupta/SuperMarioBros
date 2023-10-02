@@ -189,9 +189,16 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            // Debug.Log("Collided with goomba");
-            marioAnimator.Play("mario-die");
-            alive = false;
+            Debug.Log("Collided with goomba");
+            if(marioBody.velocity.y <-0.5f)
+                {
+                    Debug.Log("stomping");
+                }
+            else{
+                marioAnimator.Play("mario-die");
+                
+                alive = false;
+                }
         }
     }
 

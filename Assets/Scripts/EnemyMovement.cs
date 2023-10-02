@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
@@ -15,12 +16,22 @@ public class EnemyMovement : MonoBehaviour
 
     public Vector3 startPosition = new Vector3(0.0f,0.0f,0.0f);
 
+    public Animator EnemyAnimator;
+    
+    public AudioSource EnemyAudio;
+
+    private bool enemyDestroyed = false;
+    private Transform enemyParentTransform;
+
+
     void Start()
     {
-        enemyBody = GetComponent<Rigidbody2D>();
+        enemyBody = gameObject.GetComponent<Rigidbody2D>();
         // get the starting position
-        originalX = transform.position.x;
+        originalX = gameObject.transform.localPosition.x;
         ComputeVelocity();
+        EnemyAnimator.SetBool("goombaAlive",true);
+
     }
     void ComputeVelocity()
     {
@@ -48,12 +59,53 @@ public class EnemyMovement : MonoBehaviour
 
     public void GameRestart()
     {      //reset Goomba
-
-        transform.localPosition = startPosition;
+        if(!gameObject.active)
+        {
+            gameObject.SetActive(true);
+        }
+        // if(enemyDestroyed)
+        //     CreateEnemy();
+        // Debug.Log(enemyDestroyed.ToString());
+        // Debug.Log("value before");
+        // Debug.Log(gameObject.transform.localPosition);
+        // Debug.Log(gameObject.transform.position);
+        // gameObject.transform.parent = enemyParentTransform;
+        gameObject.transform.localPosition = new Vector3(originalX,0.0f,0.0f);
         moveRight = -1;
-        originalX = transform.position.x;
+        originalX = gameObject.transform.localPosition.x;
         ComputeVelocity();
+        EnemyAnimator.SetBool("goombaAlive",true);
 
 
     }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if(collider.attachedRigidbody.velocity.y <-0.5f)
+        {
+            Debug.Log("stomp from other script");
+            EnemyAnimator.SetBool("goombaAlive",false);
+            EnemyAudio.PlayOneShot(EnemyAudio.clip);
+
+
+        }
+    }
+
+    public void DestroyEnemy()
+    {   
+        gameObject.SetActive(false);
+        // enemyParentTransform = gameObject.transform.parent;
+        // // Destroy(this.gameObject);
+        // this.enemyDestroyed = true;
+        // Debug.Log("destroyed");
+        // Debug.Log(enemyDestroyed.ToString());
+    }
+
+    private void CreateEnemy()
+    {
+        gameObject.SetActive(true);
+        this.enemyDestroyed = false;
+        Instantiate(gameObject,enemyParentTransform, false);
+        Debug.Log("created");
+    } 
 }

@@ -50,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
         // GameOverScreen.SetActive(false);
         //update animator state
         marioAnimator.SetBool("onGround", onGroundState);
+        marioBody.gameObject.layer = 0;
     }
 
     // Update is called once per frame
@@ -92,8 +93,13 @@ public class PlayerMovement : MonoBehaviour
         if (alive && moving){
             Move(faceRightState ==true? 1:-1);
         }
-        // if (alive)
-        // {
+        if (!alive)
+        {
+            marioBody.gameObject.layer = 3;
+        }
+        else{
+            marioBody.gameObject.layer = 0;
+        }
         //     float moveHorizontal = Input.GetAxisRaw("Horizontal");
 
 
@@ -196,7 +202,6 @@ public class PlayerMovement : MonoBehaviour
                 }
             else{
                 marioAnimator.Play("mario-die");
-                
                 alive = false;
                 }
         }
@@ -230,6 +235,7 @@ public class PlayerMovement : MonoBehaviour
         marioAnimator.SetTrigger("gameRestart");
         alive = true;
         gameCamera.transform.localPosition = new Vector3(1.69f, 0, -10);
+        marioBody.gameObject.layer = 1;
         // GoToEntryAnimationStateForAllPrefabInstances();
     }
 

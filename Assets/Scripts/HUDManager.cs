@@ -7,7 +7,7 @@ public class HUDManager : MonoBehaviour
 {
     private Vector3[] scoreTextPosition = {
        new Vector3(-556.49f, 459, 0),
-         new Vector3(37, -20, 0)
+         new Vector3(73, -20, 0)
         };
     private Vector3[] restartButtonPosition = {
         new Vector3(866, 454, 0),

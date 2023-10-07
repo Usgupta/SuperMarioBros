@@ -33,9 +33,9 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         float desiredX = player.position.x + offset;
-        Debug.Log("new position is " + desiredX.ToString());
-        Debug.Log("start is "+ startX.ToString());                
-        Debug.Log("end is "+ endX.ToString());
+        // Debug.Log("new position is " + desiredX.ToString());
+        // Debug.Log("start is "+ startX.ToString());                
+        // Debug.Log("end is "+ endX.ToString());
 
 
         if (desiredX > startX && desiredX < endX)

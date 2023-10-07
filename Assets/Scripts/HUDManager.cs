@@ -20,13 +20,20 @@ public class HUDManager : Singleton<HUDManager>
     public Transform restartButton;
 
     public GameObject gameOverPanel;
-    public Canvas canvas;
+    // public Canvas canvas;
+
+    void Awake()
+    {
+        GameManager.instance.gameStart.AddListener(GameStart);
+        GameManager.instance.gameRestart.AddListener(GameStart);
+        GameManager.instance.gameOver.AddListener(GameOver);
+        GameManager.instance.scoreChange.AddListener(SetScore);
+
+    }
+    
     // Start is called before the first frame update
     
-    // override public void Awake()
-    // {
-    //     // canvas.worldCamera = Camera.main;
-    // }
+    
     void Start()
     {
         // SceneManager.activeSceneChanged += SetCamera;
@@ -64,8 +71,5 @@ public class HUDManager : Singleton<HUDManager>
         restartButton.localPosition = restartButtonPosition[1];
     }
 
-    // public void SetCamera(Scene current, Scene next)
-    // {
-    //     if(next.name == "World-1-2")
-    // }
+    
 }

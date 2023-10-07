@@ -39,7 +39,7 @@ public class PlayerMovement : Singleton<PlayerMovement>
     private bool moving = false;
     private bool jumpedState = false;
 
-    public GameManager gameManager;
+    // public GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
@@ -256,7 +256,7 @@ public class PlayerMovement : Singleton<PlayerMovement>
     void GameOverScene()
     {
 
-        gameManager.GameOver();
+        GameManager.instance.GameOver();
         // Time.timeScale = 0.0f;
         // GameOverScreen.SetActive(true);
         // RestartButton.transform.localPosition = new Vector3(-68, -143, 0.0f);
@@ -303,5 +303,10 @@ public class PlayerMovement : Singleton<PlayerMovement>
     {
         if(next.name == "World-1-2")
             marioBody.transform.position = new Vector3(-11.72f, -6.18f, 0);
+    }
+
+    void Awake()
+    {
+        GameManager.instance.gameRestart.AddListener(RestartGame);
     }
 }

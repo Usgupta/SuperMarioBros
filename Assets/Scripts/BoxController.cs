@@ -2,8 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoxController : MonoBehaviour
+public class BoxController : Singleton<BoxController>
 {
+    void Awake()
+    {
+        GameManager.instance.gameRestart.AddListener(GameRestart);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +24,7 @@ public class BoxController : MonoBehaviour
     public void GameRestart()
     {
         QuestionBox[] prefabInstances = GameObject.FindObjectsOfType<QuestionBox>();
+        Debug.Log("Game resart q box invoked");
 
         // Iterate over all of the prefab instances and set their entry animation state.
         foreach (QuestionBox prefabInstance in prefabInstances)
@@ -27,12 +33,14 @@ public class BoxController : MonoBehaviour
             {
                 prefabInstance.GameRestart();
                 // prefabInstance.QuestionBoxCoinAnimator.Play("coin-spawn");
-                // Debug.Log("restarting arudio check");
+                Debug.Log("game restart box  check");
                 // Debug.Log(prefabInstance.QuestionBoxCoinAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime);
                 // Debug.Log("restarting arudio check done");
                 }
         }
     }
+
+    
 
 
 }

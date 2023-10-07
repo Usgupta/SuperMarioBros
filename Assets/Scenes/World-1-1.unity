@@ -737,100 +737,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameStart:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 82354495}
-        m_TargetAssemblyTypeName: HUDManager, Assembly-CSharp
-        m_MethodName: GameStart
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   gameRestart:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 82354495}
-        m_TargetAssemblyTypeName: HUDManager, Assembly-CSharp
-        m_MethodName: GameStart
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1934318382}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: RestartGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 88144237}
-        m_TargetAssemblyTypeName: EnemyManager, Assembly-CSharp
-        m_MethodName: GameRestart
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 387535483}
-        m_TargetAssemblyTypeName: BoxController, Assembly-CSharp
-        m_MethodName: GameRestart
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   scoreChange:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 82354495}
-        m_TargetAssemblyTypeName: HUDManager, Assembly-CSharp
-        m_MethodName: SetScore
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   gameOver:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 82354495}
-        m_TargetAssemblyTypeName: HUDManager, Assembly-CSharp
-        m_MethodName: GameOver
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!4 &160963467
 Transform:
   m_ObjectHideFlags: 0
@@ -1672,7 +1588,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.2, y: 0, z: -10}
+  m_LocalPosition: {x: 1.69, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2300,6 +2216,7 @@ GameObject:
   - component: {fileID: 735438957}
   - component: {fileID: 735438956}
   - component: {fileID: 735438955}
+  - component: {fileID: 735438958}
   m_Layer: 5
   m_Name: Restart_Button
   m_TagString: Untagged
@@ -2371,9 +2288,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 160963466}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: GameRestart
+      - m_Target: {fileID: 735438958}
+        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+        m_MethodName: ButtonOnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2421,6 +2338,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 735438953}
   m_CullTransparentMesh: 1
+--- !u!114 &735438958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735438953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f3509ef1894f4d5da73f08cdfb05772, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &763569694 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2453330389322342542, guid: eec7fe37b92c246d792e2e20e803b38d, type: 3}
@@ -2801,7 +2730,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score : 0'
+  m_text: 'Score: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e7b47375c5bad450a913cd384d612478, type: 2}
   m_sharedMaterial: {fileID: -5190092502884077736, guid: e7b47375c5bad450a913cd384d612478, type: 2}
@@ -4369,7 +4298,6 @@ GameObject:
   - component: {fileID: 1934318384}
   - component: {fileID: 1934318385}
   - component: {fileID: 1934318386}
-  - component: {fileID: 1934318387}
   - component: {fileID: 1934318388}
   - component: {fileID: 1934318389}
   m_Layer: 0
@@ -4440,7 +4368,7 @@ Transform:
   m_GameObject: {fileID: 1934318378}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.3, y: -6.18, z: 0}
+  m_LocalPosition: {x: -7.523, y: -6.098, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4496,7 +4424,6 @@ MonoBehaviour:
   marioDeath: {fileID: 1940422829}
   deathImpulse: 40
   gameCamera: {fileID: 519420032}
-  gameManager: {fileID: 160963466}
 --- !u!61 &1934318383
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4678,25 +4605,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!251 &1934318387
-PlatformEffector2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1934318378}
-  m_Enabled: 1
-  m_UseColliderMask: 1
-  m_ColliderMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RotationalOffset: 0
-  m_UseOneWay: 1
-  m_UseOneWayGrouping: 0
-  m_SurfaceArc: 180
-  m_UseSideFriction: 0
-  m_UseSideBounce: 0
-  m_SideArc: 1
 --- !u!114 &1934318388
 MonoBehaviour:
   m_ObjectHideFlags: 0

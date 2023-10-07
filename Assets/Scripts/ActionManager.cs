@@ -50,7 +50,7 @@ public class ActionManager : Singleton<MonoBehaviour>
         else if(context.performed)
         {
             jump.Invoke();
-            Debug.Log("Jump was pefermoed");
+            // Debug.Log("Jump was pefermoed");
         }
             
         // else if(context.canceled)
@@ -81,7 +81,7 @@ public class ActionManager : Singleton<MonoBehaviour>
         }    
         else if(context.performed)
         {
-            Debug.Log("mouse click performed");
+            // Debug.Log("mouse click performed");
         }
 
         // else if( context.canceled)

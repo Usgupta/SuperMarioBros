@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8126612033356017320}
   - component: {fileID: 8676466784081980423}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Castle-right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1712789045
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21301102, guid: 82bc45c4496284f4c823d1b837f65ec4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2856533487772658243}
   - component: {fileID: 1718813525671113485}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Castle-left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1218225575098283587}
-  m_Layer: 0
+  - component: {fileID: 2895939139955499860}
+  - component: {fileID: 6722654935706743925}
+  m_Layer: 8
   m_Name: Castle-small
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,3 +203,57 @@ Transform:
   - {fileID: 8126612033356017320}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!68 &2895939139955499860
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8141640045026157336}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.5, y: 0}
+  - {x: 0.5, y: 0}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
+--- !u!114 &6722654935706743925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8141640045026157336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b0aff87917d046539faf9dec59d0fb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextSceneName: World-1-2

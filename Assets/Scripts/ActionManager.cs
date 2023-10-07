@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-public class ActionManager : MonoBehaviour
+public class ActionManager : Singleton<MonoBehaviour>
 {
     public MarioActions marioActions;
     public UnityEvent jump;

@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
-public class HUDManager : MonoBehaviour
+public class HUDManager : Singleton<HUDManager>
 {
     private Vector3[] scoreTextPosition = {
        new Vector3(-556.49f, 459, 0),
@@ -18,9 +20,16 @@ public class HUDManager : MonoBehaviour
     public Transform restartButton;
 
     public GameObject gameOverPanel;
+    public Canvas canvas;
     // Start is called before the first frame update
+    
+    // override public void Awake()
+    // {
+    //     // canvas.worldCamera = Camera.main;
+    // }
     void Start()
     {
+        // SceneManager.activeSceneChanged += SetCamera;
     }
 
     // Update is called once per frame
@@ -37,6 +46,9 @@ public class HUDManager : MonoBehaviour
         Debug.Log("hello start hud");
         Debug.Log(scoreText.GetComponent<TextMeshProUGUI>().text);
         restartButton.localPosition = restartButtonPosition[0];
+        
+
+        
     }
 
     public void SetScore(int score)
@@ -51,4 +63,9 @@ public class HUDManager : MonoBehaviour
         scoreText.transform.localPosition = scoreTextPosition[1];
         restartButton.localPosition = restartButtonPosition[1];
     }
+
+    // public void SetCamera(Scene current, Scene next)
+    // {
+    //     if(next.name == "World-1-2")
+    // }
 }

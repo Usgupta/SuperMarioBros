@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : Singleton<PlayerMovement>
 {
 
     public float speed = 10;
@@ -50,6 +51,8 @@ public class PlayerMovement : MonoBehaviour
         //update animator state
         marioAnimator.SetBool("onGround", onGroundState);
         marioBody.gameObject.layer = 0;
+        SceneManager.activeSceneChanged += SetStartingPosition;
+
     }
 
     // Update is called once per frame
@@ -199,11 +202,23 @@ public class PlayerMovement : MonoBehaviour
                 {
                     Debug.Log("stomping");
                 }
-            else{
-                marioAnimator.Play("mario-die");
-                alive = false;
-                }
+            else
+            {
+                MarioDie();
+            }
         }
+
+        if(other.isTrigger && other.gameObject.name == "Pit-Limit")
+        {
+            Debug.Log("fallen into pit");
+            MarioDie();
+        }
+    }
+
+    private void MarioDie()
+    {
+        marioAnimator.Play("mario-die");
+        alive = false;
     }
 
     // public void RestartButtonCallback(int input)
@@ -282,5 +297,11 @@ public class PlayerMovement : MonoBehaviour
 
             }
         }
+    }
+
+    public void SetStartingPosition(Scene current, Scene next)
+    {
+        if(next.name == "World-1-2")
+            marioBody.transform.position = new Vector3(-11.72f, -6.18f, 0);
     }
 }

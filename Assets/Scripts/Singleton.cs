@@ -36,6 +36,7 @@ public class Singleton<T> : MonoBehaviour where T: MonoBehaviour
             _instance = this as T;
             DontDestroyOnLoad(this.gameObject);
         } else {
+            Debug.Log("killing "+ this.gameObject.name.ToString());
             Destroy(this.gameObject);
         }
 

@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
 
-public class HUDManager : Singleton<HUDManager>
+public class HUDManager : MonoBehaviour
 {
     private Vector3[] scoreTextPosition = {
        new Vector3(-556.49f, 459, 0),
@@ -50,8 +50,8 @@ public class HUDManager : Singleton<HUDManager>
         // hide gameover panel
         gameOverPanel.SetActive(false);
         scoreText.transform.localPosition = scoreTextPosition[0];
-        Debug.Log("hello start hud");
-        Debug.Log(scoreText.GetComponent<TextMeshProUGUI>().text);
+        // Debug.Log("hello start hud");
+        // Debug.Log(scoreText.GetComponent<TextMeshProUGUI>().text);
         restartButton.localPosition = restartButtonPosition[0];
         
 
@@ -59,7 +59,8 @@ public class HUDManager : Singleton<HUDManager>
     }
 
     public void SetScore(int score)
-    {   Debug.Log("i am updating score HUD");
+    {   
+        // Debug.Log("i am updating score HUD");
         scoreText.GetComponent<TextMeshProUGUI>().text = "Score: " + score.ToString();
     }
 

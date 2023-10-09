@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoxController : Singleton<BoxController>
+public class BoxController : MonoBehaviour
 {
     void Awake()
     {
         GameManager.instance.gameRestart.AddListener(GameRestart);
+        Debug.Log("box controller awake");
     }
 
     // Start is called before the first frame update

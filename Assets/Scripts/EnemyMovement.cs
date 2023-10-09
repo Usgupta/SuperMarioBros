@@ -81,14 +81,26 @@ public class EnemyMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.attachedRigidbody.velocity.y <-0.5f)
-        {
-            Debug.Log("stomp from other script");
-            EnemyAnimator.SetBool("goombaAlive",false);
-            EnemyAudio.PlayOneShot(EnemyAudio.clip);
-
-
+        if(collider.gameObject.name == "Mario"){
+            if(collider.attachedRigidbody.velocity.y <-0.5f)
+            {
+                Debug.Log("stomp from other script");
+                EnemyAnimator.SetBool("goombaAlive",false);
+                EnemyAudio.PlayOneShot(EnemyAudio.clip);
+            }
         }
+
+        
+        else if(collider.gameObject.layer == 6)
+        {
+            Debug.Log("trying to move right");
+            
+            moveRight *= -1;
+            ComputeVelocity();
+            Movegoomba();
+        }
+        Debug.Log(collider.gameObject.layer.ToString());
+
     }
 
     public void DestroyEnemy()

@@ -5,24 +5,25 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerMovement : Singleton<PlayerMovement>
+public class PlayerMovement : MonoBehaviour
 {
 
-    public float speed = 10;
-    public float maxSpeed = 20;
+    public GameConstants gameConstants;
+    public float speed;
+    public float maxSpeed;
 
-    public float upSpeed = 10;
+    public float upSpeed;
     private bool onGroundState = true;
     private SpriteRenderer marioSprite;
     private bool faceRightState = true;
 
     private Rigidbody2D marioBody;
 
-    public TextMeshProUGUI scoreText;
-    public GameObject enemies;
+    // public TextMeshProUGUI scoreText;
+    // public GameObject enemies;
     // public JumpOverGoomba jumpOverGoomba;
 
-    public QuestionBox questionBox;
+    // public QuestionBox questionBox;
 
 
     // public GameObject GameOverScreen;
@@ -42,8 +43,18 @@ public class PlayerMovement : Singleton<PlayerMovement>
     // public GameManager gameManager;
 
     // Start is called before the first frame update
+    void Awake()
+    {
+        GameManager.instance.gameRestart.AddListener(RestartGame);
+    }
+
     void Start()
     {
+        speed = gameConstants.speed;
+        maxSpeed = gameConstants.maxSpeed;
+        upSpeed = gameConstants.upSpeed;
+        deathImpulse = gameConstants.deathImpulse;
+
         Application.targetFrameRate = 30;
         marioBody = GetComponent<Rigidbody2D>();
         marioSprite = GetComponent<SpriteRenderer>();
@@ -51,7 +62,7 @@ public class PlayerMovement : Singleton<PlayerMovement>
         //update animator state
         marioAnimator.SetBool("onGround", onGroundState);
         marioBody.gameObject.layer = 0;
-        SceneManager.activeSceneChanged += SetStartingPosition;
+        // SceneManager.activeSceneChanged += SetStartingPosition;
 
     }
 
@@ -276,37 +287,32 @@ public class PlayerMovement : Singleton<PlayerMovement>
         marioDeath.PlayOneShot(marioDeath.clip);
     }
 
-    public void GoToEntryAnimationStateForAllPrefabInstances()
-    {
-        // Get all of the prefab instances in the current scene.
-        QuestionBox[] prefabInstances = GameObject.FindObjectsOfType<QuestionBox>();
+    // public void GoToEntryAnimationStateForAllPrefabInstances()
+    // {
+    //     // Get all of the prefab instances in the current scene.
+    //     QuestionBox[] prefabInstances = GameObject.FindObjectsOfType<QuestionBox>();
 
-        // Iterate over all of the prefab instances and set their entry animation state.
-        foreach (QuestionBox prefabInstance in prefabInstances)
-        {
-            if (prefabInstance.GetComponent<Animator>() != null)
-            {
-                prefabInstance.QuestionBoxAnimator.SetBool("isBoxStatic",false);
-                prefabInstance.boxIsStatic = false;
-                prefabInstance.QuestionBoxBody.bodyType = RigidbodyType2D.Dynamic;
-                prefabInstance.QuestionBoxCoinAnimator.StopPlayback();
-                // prefabInstance.QuestionBoxCoinAnimator.Play("coin-spawn");
-                // Debug.Log("restarting arudio check");
-                // Debug.Log(prefabInstance.QuestionBoxCoinAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime);
-                // Debug.Log("restarting arudio check done");
+    //     // Iterate over all of the prefab instances and set their entry animation state.
+    //     foreach (QuestionBox prefabInstance in prefabInstances)
+    //     {
+    //         if (prefabInstance.GetComponent<Animator>() != null)
+    //         {
+    //             prefabInstance.QuestionBoxAnimator.SetBool("isBoxStatic",false);
+    //             prefabInstance.boxIsStatic = false;
+    //             prefabInstance.QuestionBoxBody.bodyType = RigidbodyType2D.Dynamic;
+    //             prefabInstance.QuestionBoxCoinAnimator.StopPlayback();
+    //             // prefabInstance.QuestionBoxCoinAnimator.Play("coin-spawn");
+    //             // Debug.Log("restarting arudio check");
+    //             // Debug.Log(prefabInstance.QuestionBoxCoinAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime);
+    //             // Debug.Log("restarting arudio check done");
 
-            }
-        }
-    }
+    //         }
+    //     }
+    // }
 
     public void SetStartingPosition(Scene current, Scene next)
     {
         if(next.name == "World-1-2")
             marioBody.transform.position = new Vector3(-11.72f, -6.18f, 0);
-    }
-
-    void Awake()
-    {
-        GameManager.instance.gameRestart.AddListener(RestartGame);
     }
 }

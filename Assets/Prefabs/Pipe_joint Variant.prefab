@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6498357036573418925}
   - component: {fileID: 1523161049608786742}
   - component: {fileID: 5263906799567571326}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: pipe-joint-part
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 495414745880190171}
   - component: {fileID: 1808895836607290316}
   - component: {fileID: 4316913089720344629}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: pipe-horizontal
   m_TagString: Untagged
   m_Icon: {fileID: 0}

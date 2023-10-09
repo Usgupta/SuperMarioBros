@@ -821,11 +821,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &202776026 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7023865114627614112, guid: c3ecfbafa1f214db79697a3632955cb9, type: 3}
-  m_PrefabInstance: {fileID: 1142469645}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &272248097
 GameObject:
   m_ObjectHideFlags: 0
@@ -1199,7 +1194,6 @@ Transform:
   - {fileID: 1075642375}
   - {fileID: 4273194283982640089}
   - {fileID: 2276588238037892834}
-  - {fileID: 202776026}
   - {fileID: 168386203}
   - {fileID: 1006058948}
   - {fileID: 2407896047214239916}
@@ -3393,103 +3387,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &1142469645
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 387535482}
-    m_Modifications:
-    - target: {fileID: 565080746743475791, guid: c3ecfbafa1f214db79697a3632955cb9, type: 3}
-      propertyPath: useInt.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 565080746743475791, guid: c3ecfbafa1f214db79697a3632955cb9, type: 3}
-      propertyPath: useInt.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 565080746743475791, guid: c3ecfbafa1f214db79697a3632955cb9, type: 3}
-      propertyPath: useInt.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 160963466}
-    - target: {fileID: 565080746743475791, guid: c3ecfbafa1f214db79697a3632955cb9, type: 3}
-      propertyPath: useInt.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 565080746743475791, guid: c3ecfbafa1f214db79697a3632955cb9, type: 3}
-      propertyPath: useInt.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: IncreaseScore
-      objectReference: {fileID: 0}
-    - target: {fileID: 565080746743475791, guid: c3ecfbafa1f214db79697a3632955cb9, type: 3}
-      propertyPath: useInt.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GameManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 565080746743475791, guid: c3ecfbafa1f214db79697a3632955cb9, type: 3}
-      propertyPath: useInt.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 565080746743475791, guid: c3ecfbafa1f214db79697a3632955cb9, type: 3}
-      propertyPath: useInt.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 938395426895813928, guid: c3ecfbafa1f214db79697a3632955cb9, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2182791251571010628, guid: c3ecfbafa1f214db79697a3632955cb9, type: 3}
-      propertyPath: useInt.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 160963466}
-    - target: {fileID: 7023865114627614112, guid: c3ecfbafa1f214db79697a3632955cb9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 87.167
-      objectReference: {fileID: 0}
-    - target: {fileID: 7023865114627614112, guid: c3ecfbafa1f214db79697a3632955cb9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.6299999
-      objectReference: {fileID: 0}
-    - target: {fileID: 7023865114627614112, guid: c3ecfbafa1f214db79697a3632955cb9, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7023865114627614112, guid: c3ecfbafa1f214db79697a3632955cb9, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7023865114627614112, guid: c3ecfbafa1f214db79697a3632955cb9, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7023865114627614112, guid: c3ecfbafa1f214db79697a3632955cb9, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7023865114627614112, guid: c3ecfbafa1f214db79697a3632955cb9, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7023865114627614112, guid: c3ecfbafa1f214db79697a3632955cb9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7023865114627614112, guid: c3ecfbafa1f214db79697a3632955cb9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7023865114627614112, guid: c3ecfbafa1f214db79697a3632955cb9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7955686961658373360, guid: c3ecfbafa1f214db79697a3632955cb9, type: 3}
-      propertyPath: m_Name
-      value: Brick-Coin (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c3ecfbafa1f214db79697a3632955cb9, type: 3}
 --- !u!1 &1143958471
 GameObject:
   m_ObjectHideFlags: 0
@@ -5414,42 +5311,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 387535482}
     m_Modifications:
     - target: {fileID: 565080746743475791, guid: c3ecfbafa1f214db79697a3632955cb9, type: 3}
-      propertyPath: useInt.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 565080746743475791, guid: c3ecfbafa1f214db79697a3632955cb9, type: 3}
-      propertyPath: useInt.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 565080746743475791, guid: c3ecfbafa1f214db79697a3632955cb9, type: 3}
-      propertyPath: useInt.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 160963466}
-    - target: {fileID: 565080746743475791, guid: c3ecfbafa1f214db79697a3632955cb9, type: 3}
-      propertyPath: useInt.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 565080746743475791, guid: c3ecfbafa1f214db79697a3632955cb9, type: 3}
-      propertyPath: useInt.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: IncreaseScore
-      objectReference: {fileID: 0}
-    - target: {fileID: 565080746743475791, guid: c3ecfbafa1f214db79697a3632955cb9, type: 3}
-      propertyPath: useInt.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GameManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 565080746743475791, guid: c3ecfbafa1f214db79697a3632955cb9, type: 3}
-      propertyPath: useInt.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 565080746743475791, guid: c3ecfbafa1f214db79697a3632955cb9, type: 3}
-      propertyPath: useInt.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 938395426895813928, guid: c3ecfbafa1f214db79697a3632955cb9, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2182791251571010628, guid: c3ecfbafa1f214db79697a3632955cb9, type: 3}
       propertyPath: useInt.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 160963466}
@@ -5558,10 +5419,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Question-Box-Coin
       objectReference: {fileID: 0}
-    - target: {fileID: 2695189202442383390, guid: 43cad32b17993452099877e3fcfb1ac7, type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: -7031317514437762487, guid: fb325d837ed6842fa9d09232d0e4ad66, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

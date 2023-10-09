@@ -33,9 +33,11 @@ public class QuestionBox : MonoBehaviour
         if(collisonNormal.y<0 & (Mathf.Abs(collisonNormal.x) <0.9f) & !boxIsStatic){
             Debug.Log("get coin");
             boxIsStatic = true;
+            // QuestionBoxAnimator.SetTrigger("spawned");
             QuestionBoxAnimator.SetBool("isBoxStatic",boxIsStatic);
             PlayCoinSpawn();
             Debug.Log("played already");
+            // MakeBoxStatic();
         }
         // Debug.Log("djfd");
         // Debug.Log(collisonNormal);
@@ -68,10 +70,19 @@ public class QuestionBox : MonoBehaviour
 
     void MakeBoxStatic(){
         
-        if(Mathf.Abs(QuestionBoxBody.velocity.y) <0.1f){
-            QuestionBoxBody.bodyType = RigidbodyType2D.Static;
-
+        while(Mathf.Abs(QuestionBoxBody.velocity.y) >0.1f){
+            if(Mathf.Abs(QuestionBoxBody.velocity.y) <0.1f)
+            {
+                QuestionBoxBody.bodyType = RigidbodyType2D.Static;
+                break;
+            }
         }
+    }
+
+    public void Disable()
+    {
+        this.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        // transform.localPosition = new Vector3(0, 0, 0);
     }
 
     public void GameRestart()
@@ -81,6 +92,8 @@ public class QuestionBox : MonoBehaviour
         boxIsStatic = false;
         QuestionBoxBody.bodyType = RigidbodyType2D.Dynamic;
         QuestionBoxCoinAnimator.StopPlayback();
+        // QuestionBoxAnimator.SetTrigger("spawned");
+
         // foreach (QuestionBox prefabInstance in prefabInstances)
         // {
         //     if (prefabInstance.GetComponent<Animator>() != null)

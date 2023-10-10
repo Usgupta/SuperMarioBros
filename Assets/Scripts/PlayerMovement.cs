@@ -89,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
         marioAnimator.SetFloat("xSpeed", Mathf.Abs(marioBody.velocity.x));
     }
 
-    int collisionLayerMask = ((1 << 3) | (1 << 6) | (1 << 7));
+    int collisionLayerMask = ((1 << 3) | (1 << 6) | (1 << 7) | (1 << 9));
 
     void OnCollisionEnter2D(Collision2D col)
     {

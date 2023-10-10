@@ -36,6 +36,7 @@ public class QuestionBox : MonoBehaviour
             // QuestionBoxAnimator.SetTrigger("spawned");
             QuestionBoxAnimator.SetBool("isBoxStatic",boxIsStatic);
             PlayCoinSpawn();
+            GameManager.instance.IncreaseScore(1);
             Debug.Log("played already");
             // MakeBoxStatic();
         }

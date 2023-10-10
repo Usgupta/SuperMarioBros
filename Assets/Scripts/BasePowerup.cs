@@ -8,9 +8,13 @@ public abstract class BasePowerup : MonoBehaviour, IPowerup
     protected bool consumed = false;
     protected bool goRight = true;
     protected Rigidbody2D rigidBody;
+    public AudioSource powerupAudioSource;
+    public AudioClip powerupAppearAudio;
+    public AudioClip powerupAppliedAudio;
 
     // base methods
-    protected virtual void Start(){
+    protected virtual void Start()
+    {
         rigidBody = GetComponent<Rigidbody2D>();
     }
 

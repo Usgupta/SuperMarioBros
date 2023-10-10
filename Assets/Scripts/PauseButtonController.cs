@@ -13,6 +13,7 @@ public class PauseButtonController : MonoBehaviour, IInteractiveButton
     void Start()
     {
         image = GetComponent<Image>();
+        image.sprite = pauseIcon;
     }
 
     void Update()
@@ -22,14 +23,39 @@ public class PauseButtonController : MonoBehaviour, IInteractiveButton
 
     public void ButtonClick()
     {
-        Debug.Log("Pause on clic");
-        Time.timeScale = isPaused ? 1.0f : 0.0f;
-        isPaused = !isPaused;
-        if (isPaused)
+
+        if(image.sprite == pauseIcon)
         {
-            image.sprite = pauseIcon;
+            if(Time.timeScale==1.0f)
+            {
+                image.sprite = playIcon;
+                Time.timeScale = 0.0f;
+            }    
         }
-        else
-            image.sprite = playIcon;
+        else if (image.sprite == playIcon)
+        {
+            if(Time.timeScale==0.0f)
+            {
+                image.sprite = pauseIcon;
+                Time.timeScale = 1.0f;
+            }  
+        }
+
+        // Debug.Log("Pause on clic");
+        // isPaused = !isPaused;
+        // Time.timeScale = isPaused ? 0.0f:1.0f;
+        // if (isPaused)
+        // {
+        //     image.sprite = playIcon;
+        // }
+        // if( !isPaused && Time.timeScale==0.0f)
+        // {   
+        //     Debug.Log("not supposed to do anything");
+        //     // image.sprite = pauseIcon;
+        // }
+        // if(!isPaused)
+        //     Debug.Log("is pause is false");
+        //     image.sprite = pauseIcon;
+        
     }
 }

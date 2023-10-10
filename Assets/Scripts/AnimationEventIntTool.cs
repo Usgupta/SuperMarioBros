@@ -7,6 +7,7 @@ public class AnimatorIntTool : MonoBehaviour
 {
     public int parameter;
     public UnityEvent<int> useInt;
+    public UnityEvent useVoid;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,11 @@ public class AnimatorIntTool : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void TriggerVoidEvent()
+    {
+        useVoid.Invoke();
     }
 
     public void TriggerIntEvent()

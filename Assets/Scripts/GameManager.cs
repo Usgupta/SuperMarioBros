@@ -13,6 +13,7 @@ public class GameManager : Singleton<GameManager>
     public UnityEvent gameOver;
 
     private int score = 0;
+    public IntVariable gameScore;
 
     void Start()
     {
@@ -31,8 +32,9 @@ public class GameManager : Singleton<GameManager>
     public void GameRestart()
     {
         // reset score
-        score = 0;
-        SetScore(score);
+        Debug.Log("restarting game bro");
+        gameScore.SetValue(0);
+        SetScore(gameScore.Value);
         Debug.Log("invoking restart");
         gameRestart.Invoke();
         Time.timeScale = 1.0f;
@@ -40,15 +42,17 @@ public class GameManager : Singleton<GameManager>
 
     public void IncreaseScore(int increment)
     {   
-        // Debug.Log("inc score gamemanager");
-        score += increment;
-        SetScore(score);
+        Debug.Log("inc score gamemanager");
+        Debug.Log("before was "+ gameScore.Value.ToString());
+        gameScore.ApplyChange(1);
+        Debug.Log("after was "+ gameScore.Value.ToString());
+        SetScore(gameScore.Value);
     }
 
     public void SetScore(int score)
     {   
         // Debug.Log("set score game manager");
-        scoreChange.Invoke(score);
+        scoreChange.Invoke(gameScore.Value);
     }
 
 
@@ -61,7 +65,7 @@ public class GameManager : Singleton<GameManager>
     void SceneSetup(Scene current, Scene next)
     {
         gameStart.Invoke();
-        SetScore(score);
+        SetScore(gameScore.Value);
         
     }
 }

@@ -7,6 +7,11 @@ public class QuestionBoxPowerupController : MonoBehaviour, IPowerupController
     public Animator powerupAnimator;
     public BasePowerup powerup; // reference to this question box's powerup
 
+    void Awake()
+    {
+        GameManager.instance.gameRestart.AddListener(GameRestart);
+    }
+
     void Start()
     {
 
@@ -36,6 +41,12 @@ public class QuestionBoxPowerupController : MonoBehaviour, IPowerupController
     {
         this.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         transform.localPosition = new Vector3(0, 0, 0);
+    }
+
+    public void GameRestart()
+    {
+        this.GetComponent<Animator>().SetBool("isBoxStatic",false);
+
     }
 
 

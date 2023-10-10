@@ -86,20 +86,21 @@ public class EnemyMovement : MonoBehaviour
             {
                 Debug.Log("stomp from other script");
                 EnemyAnimator.SetBool("goombaAlive",false);
+                GameManager.instance.IncreaseScore(1);
                 EnemyAudio.PlayOneShot(EnemyAudio.clip);
             }
         }
 
         
-        else if(collider.gameObject.layer == 6)
-        {
-            Debug.Log("trying to move right");
+        // else if(collider.gameObject.layer == 6)
+        // {
+        //     Debug.Log("trying to move right");
             
-            moveRight *= -1;
-            ComputeVelocity();
-            Movegoomba();
-        }
-        Debug.Log(collider.gameObject.layer.ToString());
+        //     moveRight *= -1;
+        //     ComputeVelocity();
+        //     Movegoomba();
+        // }
+        // Debug.Log(collider.gameObject.layer.ToString());
 
     }
 

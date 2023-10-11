@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Scripting;
 
-public class MagicMushroomPowerup : BasePowerup
+public class StarmanPowerup : BasePowerup
 {
     // setup this object's type
     // instantiate variables
@@ -16,7 +16,7 @@ public class MagicMushroomPowerup : BasePowerup
     protected override void Start()
     {
         base.Start(); // call base class Start()
-        this.type = PowerupType.MagicMushroom;
+        this.type = PowerupType.StarMan;
         this.rigidBody.bodyType = RigidbodyType2D.Static;
         this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
         this.gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().forceRenderingOff = false;
@@ -33,7 +33,7 @@ public class MagicMushroomPowerup : BasePowerup
             this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
             StartCoroutine(PlayAudio());
             // powerupAudioSource.PlayOneShot(powerupAppliedAudio);
-            Debug.Log("Magic Mushroom Powerup");
+            Debug.Log("Star Man Powerup");
             
 
         }

@@ -6,9 +6,10 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
 
+    public GameConstants gameConstants;
     private float originalX;
-    private float maxOffset = 5.0f;
-    private float enemyPatroltime = 2.0f;
+    // private float maxOffset = 5.0f;
+    // private float enemyPatroltime = 2.0f;
     private int moveRight = -1;
     private Vector2 velocity;
 
@@ -35,7 +36,7 @@ public class EnemyMovement : MonoBehaviour
     }
     void ComputeVelocity()
     {
-        velocity = new Vector2((moveRight) * maxOffset / enemyPatroltime, 0);
+        velocity = new Vector2((moveRight) * gameConstants.goombaMaxOffset / gameConstants.goombaPatrolTime, 0);
     }
     void Movegoomba()
     {
@@ -44,7 +45,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        if (Mathf.Abs(enemyBody.position.x - originalX) < maxOffset)
+        if (Mathf.Abs(enemyBody.position.x - originalX) < gameConstants.goombaMaxOffset)
         {// move goomba
             Movegoomba();
         }
@@ -92,15 +93,15 @@ public class EnemyMovement : MonoBehaviour
         }
 
         
-        // else if(collider.gameObject.layer == 6)
-        // {
-        //     Debug.Log("trying to move right");
+        else
+        {
+            Debug.Log("trying to move right");
             
-        //     moveRight *= -1;
-        //     ComputeVelocity();
-        //     Movegoomba();
-        // }
-        // Debug.Log(collider.gameObject.layer.ToString());
+            moveRight = -1;
+            ComputeVelocity();
+            Movegoomba();
+        }
+        Debug.Log(collider.gameObject.layer.ToString());
 
     }
 

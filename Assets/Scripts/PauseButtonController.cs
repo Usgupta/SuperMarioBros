@@ -9,6 +9,9 @@ public class PauseButtonController : MonoBehaviour, IInteractiveButton
     public Sprite pauseIcon;
     public Sprite playIcon;
     private Image image;
+    public GameObject gamePausePanel;
+    public GameObject backtoMain;
+    public AudioSource audioSource;
 
     void Start()
     {
@@ -30,7 +33,12 @@ public class PauseButtonController : MonoBehaviour, IInteractiveButton
             {
                 image.sprite = playIcon;
                 Time.timeScale = 0.0f;
-            }    
+                audioSource.PlayOneShot(audioSource.clip); 
+                gamePausePanel.SetActive(true);
+                backtoMain.SetActive(true);
+            }
+            
+               
         }
         else if (image.sprite == playIcon)
         {
@@ -38,7 +46,12 @@ public class PauseButtonController : MonoBehaviour, IInteractiveButton
             {
                 image.sprite = pauseIcon;
                 Time.timeScale = 1.0f;
+                audioSource.PlayOneShot(audioSource.clip);  
+                gamePausePanel.SetActive(false);  
+                backtoMain.SetActive(false);
             }  
+            
+
         }
 
         // Debug.Log("Pause on clic");

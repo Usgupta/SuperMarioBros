@@ -3520,6 +3520,34 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300096, guid: 82bc45c4496284f4c823d1b837f65ec4, type: 3}
+    - target: {fileID: 3140172302308021273, guid: 12d2990ef58844f97b2b0f4c2d95cff6, type: 3}
+      propertyPath: useInt.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1807790707}
+    - target: {fileID: 3140172302308021273, guid: 12d2990ef58844f97b2b0f4c2d95cff6, type: 3}
+      propertyPath: useVoid.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1807790707}
+    - target: {fileID: 3140172302308021273, guid: 12d2990ef58844f97b2b0f4c2d95cff6, type: 3}
+      propertyPath: useInt.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SpawnPowerup
+      objectReference: {fileID: 0}
+    - target: {fileID: 3140172302308021273, guid: 12d2990ef58844f97b2b0f4c2d95cff6, type: 3}
+      propertyPath: useVoid.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PowerupAppearAudio
+      objectReference: {fileID: 0}
+    - target: {fileID: 3140172302308021273, guid: 12d2990ef58844f97b2b0f4c2d95cff6, type: 3}
+      propertyPath: useInt.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: StarmanPowerup, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3140172302308021273, guid: 12d2990ef58844f97b2b0f4c2d95cff6, type: 3}
+      propertyPath: useVoid.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: StarmanPowerup, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5710681279348669577, guid: 12d2990ef58844f97b2b0f4c2d95cff6, type: 3}
+      propertyPath: powerup
+      value: 
+      objectReference: {fileID: 1807790707}
     - target: {fileID: 7442192546039957793, guid: 12d2990ef58844f97b2b0f4c2d95cff6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 20.61
@@ -3560,11 +3588,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8754728357138339881, guid: 12d2990ef58844f97b2b0f4c2d95cff6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8754728357138339881, guid: 12d2990ef58844f97b2b0f4c2d95cff6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2309629292022458560, guid: 12d2990ef58844f97b2b0f4c2d95cff6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1807790707}
   m_SourcePrefab: {fileID: 100100000, guid: 12d2990ef58844f97b2b0f4c2d95cff6, type: 3}
+--- !u!82 &1807790705 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1201255539388555904, guid: 12d2990ef58844f97b2b0f4c2d95cff6, type: 3}
+  m_PrefabInstance: {fileID: 1807790704}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1807790706 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2309629292022458560, guid: 12d2990ef58844f97b2b0f4c2d95cff6, type: 3}
+  m_PrefabInstance: {fileID: 1807790704}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1807790707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807790706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59db4c1156f4348a7bca375e2a981580, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 3
+  spawned: 0
+  powerupAudioSource: {fileID: 1807790705}
+  powerupAppearAudio: {fileID: 8300000, guid: 97a450c65284a4a3094ba5c2221a492b, type: 3}
+  powerupAppliedAudio: {fileID: 8300000, guid: 26301d2e86e99420599e315297a825df, type: 3}
 --- !u!1 &1934318378
 GameObject:
   m_ObjectHideFlags: 0
@@ -4029,7 +4092,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1934318382}
         m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: Jump
+        m_MethodName: Jumphold
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

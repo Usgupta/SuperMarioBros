@@ -199,7 +199,7 @@ public class PlayerMovement : MonoBehaviour
     public void Jumphold(){
         if(alive && jumpedState){
             //jump higher
-            marioBody.AddForce(Vector2.up * upSpeed * 30, ForceMode2D.Force);
+            marioBody.AddForce(Vector2.up * upSpeed * 50, ForceMode2D.Force);
             jumpedState = false;
         }
     }

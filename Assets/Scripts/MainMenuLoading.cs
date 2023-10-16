@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
@@ -9,6 +10,8 @@ public class MainMenuLoading : MonoBehaviour
 {
     public GameObject highScoreText;
     public IntVariable gameScore;
+
+    public UnityEvent gameRestart;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +28,8 @@ public class MainMenuLoading : MonoBehaviour
     {
         SceneManager.LoadSceneAsync("LoadingScreen",LoadSceneMode.Single);
         Debug.Log("ivoking restart");
-        GameManager.instance.GameRestart();
+        gameRestart.Invoke();
+        // GameManager.instance.GameRestart();
     }
 
     public void SetHighScore()

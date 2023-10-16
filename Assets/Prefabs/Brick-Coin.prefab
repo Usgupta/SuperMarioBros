@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 938395426895813928}
   - component: {fileID: 1351723075285523189}
   - component: {fileID: 4488066531941190287}
+  - component: {fileID: 8561187730420556607}
   m_Layer: 6
   m_Name: Brick
   m_TagString: Untagged
@@ -443,6 +444,34 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8561187730420556607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4923207568975707409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4947df825d343e7bb80688e6cfdc07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: a0405b52775c843bdad42175d553d5e5, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1351723075285523189}
+        m_TargetAssemblyTypeName: QuestionBox, Assembly-CSharp
+        m_MethodName: GameRestart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7955686961658373360
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,6 +609,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  useVoid:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8509908795941722917
 GameObject:
   m_ObjectHideFlags: 0

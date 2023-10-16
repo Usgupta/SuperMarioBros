@@ -4,13 +4,14 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
-public class GameManager : Singleton<GameManager>
+public class GameManager : MonoBehaviour
 {
     // events
     public UnityEvent gameStart;
     public UnityEvent gameRestart;
     public UnityEvent<int> scoreChange;
     public UnityEvent gameOver;
+    // public UnityEvent updateScore;
 
     private int score = 0;
     public IntVariable gameScore;
@@ -66,6 +67,26 @@ public class GameManager : Singleton<GameManager>
     {
         gameStart.Invoke();
         SetScore(gameScore.Value);
+        
+    }
+
+    public void RequestPowerupEffect()
+    {
+        
+    }
+
+    public void FilterAndCastPowerup()
+    {
+        
+    }
+
+    public void PauseGame()
+    {
+        
+    }
+
+    public void ResumeGame()
+    {
         
     }
 }

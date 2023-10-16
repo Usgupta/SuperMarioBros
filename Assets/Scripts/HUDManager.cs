@@ -31,10 +31,10 @@ public class HUDManager : MonoBehaviour
 
     void Awake()
     {
-        GameManager.instance.gameStart.AddListener(GameStart);
-        GameManager.instance.gameRestart.AddListener(GameStart);
-        GameManager.instance.gameOver.AddListener(GameOver);
-        GameManager.instance.scoreChange.AddListener(SetScore);
+        // GameManager.instance.gameStart.AddListener(GameStart);
+        // GameManager.instance.gameRestart.AddListener(GameStart);
+        // GameManager.instance.gameOver.AddListener(GameOver);
+        // GameManager.instance.scoreChange.AddListener(SetScore);
 
     }
     
@@ -53,11 +53,11 @@ public class HUDManager : MonoBehaviour
     }
 
     public void GameStart()
-    {
+    {   
         // hide gameover panel
         gameOverPanel.SetActive(false);
         scoreText.transform.localPosition = scoreTextPosition[0];
-        // Debug.Log("hello start hud");
+        Debug.Log("hello start hud");
         // Debug.Log(scoreText.GetComponent<TextMeshProUGUI>().text);
         restartButton.localPosition = restartButtonPosition[0];
         highScoreText.GetComponent<TextMeshProUGUI>().gameObject.SetActive(false);
@@ -65,19 +65,17 @@ public class HUDManager : MonoBehaviour
         BackToMain.SetActive(false);
         Time.timeScale = 1.0f;
         
-
-        
     }
 
     public void SetScore(int score)
     {   
         // Debug.Log("i am updating score HUD");
-        scoreText.GetComponent<TextMeshProUGUI>().text = "Score: " + score.ToString();
+        scoreText.GetComponent<TextMeshProUGUI>().text = "Score: " + gameScore.Value.ToString();
     }
 
 
     public void GameOver()
-    {
+    {   Debug.Log("game over hud is called");
         gameOverPanel.SetActive(true);
         scoreText.transform.localPosition = scoreTextPosition[1];
         restartButton.localPosition = restartButtonPosition[1];

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class EnemyMovement : MonoBehaviour
 
     private bool enemyDestroyed = false;
     private Transform enemyParentTransform;
+    public UnityEvent damagePlayer;
+    public UnityEvent<int> increaseScore;
 
 
     void Start()
@@ -67,7 +70,7 @@ public class EnemyMovement : MonoBehaviour
         // if(enemyDestroyed)
         //     CreateEnemy();
         // Debug.Log(enemyDestroyed.ToString());
-        // Debug.Log("value before");
+        Debug.Log("goomba restart");
         // Debug.Log(gameObject.transform.localPosition);
         // Debug.Log(gameObject.transform.position);
         // gameObject.transform.parent = enemyParentTransform;
@@ -87,7 +90,8 @@ public class EnemyMovement : MonoBehaviour
             {
                 Debug.Log("stomp from other script");
                 EnemyAnimator.SetBool("goombaAlive",false);
-                GameManager.instance.IncreaseScore(1);
+                increaseScore.Invoke(1);
+                // GameManager.instance.IncreaseScore(1);
                 EnemyAudio.PlayOneShot(EnemyAudio.clip);
             }
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
@@ -41,11 +42,12 @@ public class PlayerMovement : MonoBehaviour
     private bool jumpedState = false;
 
     // public GameManager gameManager;
+    public UnityEvent gameOver;
 
     // Start is called before the first frame update
     void Awake()
     {
-        GameManager.instance.gameRestart.AddListener(RestartGame);
+        // GameManager.instance.gameRestart.AddListener(RestartGame);
     }
 
     void Start()
@@ -266,8 +268,9 @@ public class PlayerMovement : MonoBehaviour
 
     void GameOverScene()
     {
-
-        GameManager.instance.GameOver();
+        Debug.Log("you are dying");
+        gameOver.Invoke();
+        // GameManager.instance.GameOver();
         // Time.timeScale = 0.0f;
         // GameOverScreen.SetActive(true);
         // RestartButton.transform.localPosition = new Vector3(-68, -143, 0.0f);
@@ -314,5 +317,15 @@ public class PlayerMovement : MonoBehaviour
     {
         if(next.name == "World-1-2")
             marioBody.transform.position = new Vector3(-11.72f, -6.18f, 0);
+    }
+
+    public void RequestPowerupEffect()
+    {
+        
+    }
+
+    public void DamageMario()
+    {
+        
     }
 }

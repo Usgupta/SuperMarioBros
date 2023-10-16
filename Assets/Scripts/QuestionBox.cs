@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class QuestionBox : MonoBehaviour
 {   
@@ -14,6 +15,7 @@ public class QuestionBox : MonoBehaviour
     // Start is called before the first frame update
     public Rigidbody2D QuestionBoxBody;
     private SpriteRenderer questionBoxSprite;
+    public UnityEvent<int> increaseScore;
 
     // public PlayerMovement playerMovement;
 
@@ -36,7 +38,8 @@ public class QuestionBox : MonoBehaviour
             // QuestionBoxAnimator.SetTrigger("spawned");
             QuestionBoxAnimator.SetBool("isBoxStatic",boxIsStatic);
             PlayCoinSpawn();
-            GameManager.instance.IncreaseScore(1);
+            increaseScore.Invoke(1);
+            // GameManager.instance.IncreaseScore(1);
             Debug.Log("played already");
             // MakeBoxStatic();
         }

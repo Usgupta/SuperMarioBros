@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class QuestionBoxPowerupController : MonoBehaviour, IPowerupController
 {
     public Animator powerupAnimator;
     public BasePowerup powerup; // reference to this question box's powerup
+    // public UnityEvent gameRestart;
 
     void Awake()
     {
-        GameManager.instance.gameRestart.AddListener(GameRestart);
+        // GameManager.instance.gameRestart.AddListener(GameRestart);
     }
 
     void Start()

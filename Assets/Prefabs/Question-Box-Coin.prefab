@@ -241,6 +241,7 @@ GameObject:
   - component: {fileID: 2782725230902112418}
   - component: {fileID: 4291718217791985438}
   - component: {fileID: 2695189202442383390}
+  - component: {fileID: 5628670475778433772}
   m_Layer: 6
   m_Name: Question_box
   m_TagString: Untagged
@@ -407,7 +408,7 @@ SpringJoint2D:
   m_AutoConfigureDistance: 0
   m_Distance: 1
   m_DampingRatio: 0.6
-  m_Frequency: 5
+  m_Frequency: 10
 --- !u!68 &2156425144512305154
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -487,6 +488,21 @@ MonoBehaviour:
   QuestionBoxCoinAnimator: {fileID: 8417301122831341269}
   boxIsStatic: 0
   QuestionBoxBody: {fileID: 0}
+  increaseScore:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: fb6be5ce2b95e40559209d5cfddd627a, type: 2}
+        m_TargetAssemblyTypeName: GameEvent`1[[System.Int32, mscorlib
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!82 &2695189202442383390
 AudioSource:
   m_ObjectHideFlags: 0
@@ -583,6 +599,34 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5628670475778433772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3791671222905416296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c4947df825d343e7bb80688e6cfdc07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: a0405b52775c843bdad42175d553d5e5, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4291718217791985438}
+        m_TargetAssemblyTypeName: QuestionBox, Assembly-CSharp
+        m_MethodName: GameRestart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8478317034498596769
 GameObject:
   m_ObjectHideFlags: 0

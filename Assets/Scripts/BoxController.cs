@@ -6,7 +6,7 @@ public class BoxController : MonoBehaviour
 {
     void Awake()
     {
-        GameManager.instance.gameRestart.AddListener(GameRestart);
+        // GameManager.instance.gameRestart.AddListener(GameRestart);
         Debug.Log("box controller awake");
     }
 

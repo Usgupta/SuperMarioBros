@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class PauseButtonController : MonoBehaviour, IInteractiveButton
@@ -12,6 +13,8 @@ public class PauseButtonController : MonoBehaviour, IInteractiveButton
     public GameObject gamePausePanel;
     public GameObject backtoMain;
     public AudioSource audioSource;
+    public UnityEvent gamePaused;
+    public UnityEvent gameResumed;
 
     void Start()
     {

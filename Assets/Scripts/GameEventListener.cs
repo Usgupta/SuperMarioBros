@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -25,4 +24,3 @@ public class GameEventListener<T> : MonoBehaviour
         Response.Invoke(data);
     }
 }
-

@@ -5407,6 +5407,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highScoreText: {fileID: 2043559727}
   gameScore: {fileID: 11400000, guid: 619ae609023ed4a9aa06b5fc9c4860b3, type: 2}
+  gameRestart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: a0405b52775c843bdad42175d553d5e5, type: 2}
+        m_TargetAssemblyTypeName: GameEvent`1[[UnityEngine.Object, UnityEngine
+        m_MethodName: Raise
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2025363440
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ public class StarmanPowerup : BasePowerup
 
     void Awake()
     {
-        GameManager.instance.gameRestart.AddListener(this.GameRestart);
+        // GameManager.instance.gameRestart.AddListener(this.GameRestart);
     }
     protected override void Start()
     {
@@ -57,7 +57,8 @@ public class StarmanPowerup : BasePowerup
         powerupAudioSource.PlayOneShot(powerupAppliedAudio);
         this.gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().forceRenderingOff = true;
         yield return new WaitForSeconds(powerupAppliedAudio.length);
-        this.gameObject.SetActive(false);
+        this.transform.GetChild(0).gameObject.SetActive(false);
+
     }
 
     // interface implementation
@@ -99,13 +100,15 @@ public class StarmanPowerup : BasePowerup
 
     public void GameRestart()
     {   
-        Debug.Log("mushroom restart invoked");
-        this.gameObject.SetActive(true);
+        Debug.Log("starman restart invoked");
+        this.transform.GetChild(0).gameObject.SetActive(true);
         this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
         this.rigidBody.bodyType = RigidbodyType2D.Static;
         this.transform.GetChild(0).transform.localPosition = new Vector3(0.0f,0.0f,0.0f);
         Debug.Log(this.transform.GetChild(0).transform.localPosition.ToString());
+        Debug.Log("before  "+ this.transform.localPosition.ToString());
         this.transform.localPosition = new Vector3(0,0,0);
+        Debug.Log("after  "+ this.transform.localPosition.ToString());
         this.gameObject.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().forceRenderingOff = true;
         this.gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>().Play("InitialState");
         this.spawned = false;

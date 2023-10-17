@@ -2,12 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Scripting;
 
 public class MagicMushroomPowerup : BasePowerup
 {
     // setup this object's type
     // instantiate variables
+    public UnityEvent<IPowerup> powerupCollected;
 
     void Awake()
     {
@@ -30,8 +32,11 @@ public class MagicMushroomPowerup : BasePowerup
             // TODO: do something when colliding with Player
 
             // then destroy powerup (optional)
+
             this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
             StartCoroutine(PlayAudio());
+            powerupCollected.Invoke(this);
+            // ApplyPowerup(this);
             // powerupAudioSource.PlayOneShot(powerupAppliedAudio);
             Debug.Log("Magic Mushroom Powerup");
             
@@ -79,7 +84,17 @@ public class MagicMushroomPowerup : BasePowerup
 
     // interface implementation
     public override void ApplyPowerup(MonoBehaviour i)
-    {
+    {   
+        // base.ApplyPowerup(i);
+        Debug.Log("applying mushroom");
+        MarioStateController mario;
+        bool result = i.TryGetComponent<MarioStateController>(out mario);
+        if (result)
+        {
+            mario.SetPowerup(PowerupType.MagicMushroom);
+            Debug.Log("mushroom powerup allied");
+        }
+            
         // TODO: do something with the object
 
     }

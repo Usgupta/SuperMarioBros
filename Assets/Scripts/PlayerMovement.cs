@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour, IPowerupApplicable
 {
 
     public GameConstants gameConstants;
@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     private bool onGroundState = true;
     private SpriteRenderer marioSprite;
     private bool faceRightState = true;
+    public BoolVariable marioFaceRight;
 
     private Rigidbody2D marioBody;
 
@@ -43,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
 
     // public GameManager gameManager;
     public UnityEvent gameOver;
+    public UnityEvent playerDamaged;
 
     // Start is called before the first frame update
     void Awake()
@@ -154,7 +156,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if( value == -1 && faceRightState)
         {
-            faceRightState = false;
+            // faceRightState = false;
+            updateMarioShouldFaceRight(false);
             marioSprite.flipX = true;
             if (marioBody.velocity.x > 0.1f)
                 marioAnimator.SetTrigger("onSkid");
@@ -162,7 +165,7 @@ public class PlayerMovement : MonoBehaviour
         } 
         else if (value == 1 && !faceRightState)
         {
-            faceRightState = true;
+            updateMarioShouldFaceRight(true);
             marioSprite.flipX = false;
             if (marioBody.velocity.x < -0.1f)
                 marioAnimator.SetTrigger("onSkid");
@@ -217,21 +220,24 @@ public class PlayerMovement : MonoBehaviour
                 }
             else
             {
-                MarioDie();
+                playerDamaged.Invoke();
+                // MarioDie();
             }
         }
 
         if(other.isTrigger && other.gameObject.name == "Pit-Limit")
         {
             Debug.Log("fallen into pit");
-            MarioDie();
+            playerDamaged.Invoke();
+            // MarioDie();
         }
     }
 
     private void MarioDie()
     {
-        marioAnimator.Play("mario-die");
-        alive = false;
+        // marioAnimator.Play("mario-die");
+        // alive = false;
+        DamageMario();
     }
 
     // public void RestartButtonCallback(int input)
@@ -319,13 +325,21 @@ public class PlayerMovement : MonoBehaviour
             marioBody.transform.position = new Vector3(-11.72f, -6.18f, 0);
     }
 
-    public void RequestPowerupEffect()
-    {
-        
-    }
-
     public void DamageMario()
     {
-        
+        GetComponent<MarioStateController>().SetPowerup(PowerupType.Damage);
+    }
+
+    private void updateMarioShouldFaceRight(bool value)
+    {
+        faceRightState = value;
+        marioFaceRight.SetValue(value);
+    }
+
+    public void RequestPowerupEffect(IPowerup i)
+    {
+        Debug.Log("mario request is called "+ i.ToString());
+        i.ApplyPowerup(this);
+        // throw new System.NotImplementedException();
     }
 }

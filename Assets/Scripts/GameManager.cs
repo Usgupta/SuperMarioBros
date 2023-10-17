@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     public UnityEvent<int> scoreChange;
     public UnityEvent gameOver;
     // public UnityEvent updateScore;
+    public UnityEvent<IPowerup> powerupAffectsPlayer;
+    public UnityEvent<IPowerup> powerupAffectsManager;
+
 
     private int score = 0;
     public IntVariable gameScore;
@@ -75,9 +78,11 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void FilterAndCastPowerup()
-    {
-        
+    public void FilterAndCastPowerup(IPowerup i)
+    {   
+        Debug.Log("invoking request "+ i.ToString());
+        powerupAffectsPlayer.Invoke(i);
+        powerupAffectsManager.Invoke(i);
     }
 
     public void PauseGame()

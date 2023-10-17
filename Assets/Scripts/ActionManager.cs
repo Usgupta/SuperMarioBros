@@ -10,6 +10,8 @@ public class ActionManager : MonoBehaviour
     public UnityEvent jump;
     public UnityEvent jumpHold;
     public UnityEvent<int> moveCheck;
+
+    public UnityEvent fire;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +21,9 @@ public class ActionManager : MonoBehaviour
         marioActions.gameplay.jumphold.performed += onJumpHoldAction;
         marioActions.gameplay.move.started += onMoveAction;
         marioActions.gameplay.move.canceled += onMoveAction;
+        marioActions.gameplay.fire.started += OnFireAction;
+        marioActions.gameplay.fire.canceled += OnFireAction;
+        marioActions.gameplay.fire.performed += OnFireAction;
     }
 
     // Update is called once per frame
@@ -99,5 +104,15 @@ public class ActionManager : MonoBehaviour
         }
 
 
+    }
+
+    public void OnFireAction(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {   
+            Debug.Log("fire action");
+            fire.Invoke();
+        }
+        
     }
 }

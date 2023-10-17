@@ -2,12 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Scripting;
 
 public class StarmanPowerup : BasePowerup
 {
     // setup this object's type
     // instantiate variables
+    public UnityEvent<IPowerup> powerupCollected;
 
     void Awake()
     {
@@ -30,10 +32,13 @@ public class StarmanPowerup : BasePowerup
             // TODO: do something when colliding with Player
 
             // then destroy powerup (optional)
+
             this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
             StartCoroutine(PlayAudio());
+            powerupCollected.Invoke(this);
+            // ApplyPowerup(this);
             // powerupAudioSource.PlayOneShot(powerupAppliedAudio);
-            Debug.Log("Star Man Powerup");
+            Debug.Log("Magic star man Powerup");
             
 
         }
@@ -79,7 +84,17 @@ public class StarmanPowerup : BasePowerup
 
     // interface implementation
     public override void ApplyPowerup(MonoBehaviour i)
-    {
+    {   
+        // base.ApplyPowerup(i);
+        Debug.Log("applying star man");
+        BuffStateController mario;
+        bool result = i.TryGetComponent<BuffStateController>(out mario);
+        if (result)
+        {
+            mario.SetPowerup(PowerupType.StarMan);
+            Debug.Log("star man powerup allied");
+        }
+            
         // TODO: do something with the object
 
     }
@@ -100,7 +115,7 @@ public class StarmanPowerup : BasePowerup
 
     public void GameRestart()
     {   
-        Debug.Log("starman restart invoked");
+        Debug.Log("star man restart invoked");
         this.transform.GetChild(0).gameObject.SetActive(true);
         this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
         this.rigidBody.bodyType = RigidbodyType2D.Static;

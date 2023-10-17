@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 26cfacfbd53149149156ca1c8cb9e950
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - attackPrefab: {fileID: 955306392625458563, guid: 4b8b88bb0599e4dea8c63be04a27cf0b, type: 3}
+  - marioFaceRight: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

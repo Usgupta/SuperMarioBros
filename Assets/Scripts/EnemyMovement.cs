@@ -84,9 +84,10 @@ public class EnemyMovement : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D collider)
-    {
-        if(collider.gameObject.name == "Mario"){
-            if(collider.attachedRigidbody.velocity.y <-0.5f)
+    {   
+        Debug.Log(collider.gameObject.name);
+        if(collider.gameObject.name == "Mario" || collider.gameObject.name == "FireBall(Clone)"){
+            if(collider.attachedRigidbody.velocity.y <-0.5f || collider.gameObject.name == "FireBall(Clone)")
             {
                 Debug.Log("stomp from other script");
                 EnemyAnimator.SetBool("goombaAlive",false);

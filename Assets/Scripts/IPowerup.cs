@@ -19,14 +19,5 @@ public interface IPowerup
 
 public interface IPowerupApplicable
 {
-    public void RequestPowerupEffect(float i);
-}
-
-
-public enum PowerupType
-{
-    Coin = 0,
-    MagicMushroom = 1,
-    OneUpMushroom = 2,
-    StarMan =3
+    public void RequestPowerupEffect(IPowerup i);
 }

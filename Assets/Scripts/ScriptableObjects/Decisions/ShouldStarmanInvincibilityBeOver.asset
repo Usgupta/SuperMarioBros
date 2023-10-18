@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc16762a25a46258c8400cd1dd57442, type: 3}
   m_Name: ShouldStarmanInvincibilityBeOver
   m_EditorClassIdentifier: 
-  buffDuration: 20
+  buffDuration: 10

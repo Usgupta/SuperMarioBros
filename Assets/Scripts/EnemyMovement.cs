@@ -94,7 +94,7 @@ public class EnemyMovement : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collider)
     {   
         Debug.Log(collider.gameObject.name);
-        if(collider.gameObject.name == "Mario" || collider.gameObject.name == "FireBall(Clone)"){
+        if(collider.gameObject.name == "Mario"){
             if(collider.attachedRigidbody.velocity.y <-0.5f)
             {
                 Debug.Log("stomp from other script");
@@ -103,11 +103,14 @@ public class EnemyMovement : MonoBehaviour
                 // GameManager.instance.IncreaseScore(1);
                 EnemyAudio.PlayOneShot(EnemyAudio.clip);
             }
+            
+        }
+        
+        if (collider.gameObject.name == "FireBall(Clone)")
+        {
+            StartCoroutine(FlipGoomba());
+            increaseScore.Invoke(1);
 
-            if (collider.gameObject.name == "FireBall(Clone)")
-            {
-                StartCoroutine(FlipGoomba());
-            }
         }
 
         

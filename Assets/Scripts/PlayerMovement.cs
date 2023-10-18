@@ -107,9 +107,17 @@ public class PlayerMovement : MonoBehaviour, IPowerupApplicable
 
     void FixedUpdate()
     {   
+        if (GetComponent<MarioStateController>().currentState.name == "DeadMario")
+            alive = false;
+        else
+        {
+            alive = true;
+        }
         if (alive && moving){
             Move(faceRightState ==true? 1:-1);
         }
+
+        
         if (!alive)
         {
             marioBody.gameObject.layer = 3;
@@ -225,6 +233,7 @@ public class PlayerMovement : MonoBehaviour, IPowerupApplicable
                 {
                     Debug.Log("not supposed to do anything");
                     StartCoroutine(other.gameObject.GetComponent<EnemyMovement>().FlipGoomba());
+                    other.gameObject.GetComponent<EnemyMovement>().increaseScore.Invoke(1);
                 }
                 else
                 {
@@ -339,7 +348,11 @@ public class PlayerMovement : MonoBehaviour, IPowerupApplicable
     {
         if (this.gameObject.GetComponent<BuffStateController>().currentPowerupType != PowerupType.StarMan)
             // Debug.Log("dont do anythingggg stopp");
+        {
             GetComponent<MarioStateController>().SetPowerup(PowerupType.Damage);
+
+
+        }
     }
 
     private void updateMarioShouldFaceRight(bool value)

@@ -7,7 +7,8 @@ using UnityEngine.Events;
 public class BuffStateController : StateController
 {
     public PowerupType currentPowerupType = PowerupType.Default;
-    public BuffState shouldBeNextState = BuffState.Default;
+    
+    public BuffState shouldBeNextState = BuffState.NoStateMario;
     private SpriteRenderer spriteRenderer;
     public GameConstants gameConstants;
 
@@ -45,7 +46,10 @@ public class BuffStateController : StateController
         while (string.Equals(currentState.name, "InvincibleMario", StringComparison.OrdinalIgnoreCase))
         {
             // Toggle the visibility of the sprite renderer
+            Debug.Log("i am supposed to blink "+ spriteRenderer.enabled.ToString());
             spriteRenderer.enabled = !spriteRenderer.enabled;
+            Debug.Log("i am supposed to blink after "+ spriteRenderer.enabled.ToString());
+
 
             // Wait for the specified blink interval
             yield return new WaitForSeconds(gameConstants.flickerInterval);
@@ -54,10 +58,10 @@ public class BuffStateController : StateController
         spriteRenderer.enabled = true;
     }
 
-    // public void Fire()
-    // {
-    //     Debug.Log("calling fire action from mario state controlelr");
-    //     this.currentState.DoEventTriggeredActions(this,ActionType.Attack);
-    // }
+    public void GoombaFlipKill()
+    {
+        Debug.Log("calling fire action from mario state controlelr");
+        this.currentState.DoEventTriggeredActions(this,ActionType.Attack);
+    }
 
 }

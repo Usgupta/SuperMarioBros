@@ -17,7 +17,7 @@ public class State : ScriptableObject
     /* REGULAR METHODS */
     // these regular methods cannot be overriden
     public void UpdateState(StateController controller)
-    {
+    {   
         DoActions(controller);
         CheckTransitions(controller);
     }
@@ -51,7 +51,7 @@ public class State : ScriptableObject
     {   Debug.Log("checking for transitions "+ controller.name);
         controller.transitionStateChanged = false; //reset
         for (int i = 0; i < transitions.Length; ++i)
-        {
+        {   
             //check if the previous transition has caused a change. If yes, stop. Let Update() in StateController run again in the next state.
             if (controller.transitionStateChanged)
             {

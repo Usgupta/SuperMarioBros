@@ -70,8 +70,8 @@ public abstract class StateController : MonoBehaviour
     public void Update()
     {
         if (!isActive) return; // this is different from gameObject active, allow for separate control
-        
-        Debug.Log("im chekcing states");
+        Debug.Log("current state is and checking for transition"+ currentState.name);
+        // Debug.Log("im chekcing states");
         currentState.UpdateState(this);
     }
     /********************************/

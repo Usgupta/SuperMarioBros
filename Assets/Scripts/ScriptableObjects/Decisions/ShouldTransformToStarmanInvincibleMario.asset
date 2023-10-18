@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: ShouldTransformToStarmanInvincibleMario
   m_EditorClassIdentifier: 
   map:
-  - fromState: -1
+  - fromState: 0
     powerupCollected: 3

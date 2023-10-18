@@ -28,6 +28,7 @@ public class FireAttackAction : Action
                 Vector2 direction = CalculateDirection(degree, marioFaceRight.Value);
                 // Apply a rightward impulse force to the object
                 rb.AddForce(direction * impulseForce, ForceMode2D.Impulse);
+                Debug.Log("the force is "+ (direction * impulseForce).ToString());
             }
 
         }
@@ -41,6 +42,7 @@ public class FireAttackAction : Action
 
         // Calculate the direction vector
         float x = Mathf.Cos(radians);
+        Debug.Log("the direction is "+ x.ToString());
         float y = Mathf.Sin(radians);
 
         // If the object is facing left, invert the x-component of the direction

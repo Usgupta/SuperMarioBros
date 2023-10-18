@@ -13,10 +13,14 @@ MonoBehaviour:
   m_Name: InvincibleMario
   m_EditorClassIdentifier: 
   setupActions:
-  - {fileID: 11400000, guid: 99722dc8a52ee4496993616b995330c5, type: 2}
-  - {fileID: 11400000, guid: 4ddcd6998ce8842f29809468e9bedc3f, type: 2}
+  - {fileID: 11400000, guid: e334b522e1c3f45f090f9702c0a977c8, type: 2}
   actions: []
   eventTriggeredActions: []
-  exitActions: []
-  transitions: []
+  exitActions:
+  - {fileID: 11400000, guid: 4ddcd6998ce8842f29809468e9bedc3f, type: 2}
+  - {fileID: 11400000, guid: 4ddcd6998ce8842f29809468e9bedc3f, type: 2}
+  transitions:
+  - decision: {fileID: 11400000, guid: d97585f16e57e40e280c064f2b1c3a87, type: 2}
+    trueState: {fileID: 11400000, guid: 9f744927d26ca41fa8b754182277f494, type: 2}
+    falseState: {fileID: 11400000, guid: 71bca37a77be149368e5660b86986b95, type: 2}
   sceneGizmoColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}

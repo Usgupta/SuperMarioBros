@@ -1,6 +1,6 @@
 public enum BuffState
 {   
-    Def = -1,
-    Default = 0,
-    Invincible = 1
+    NoStateMario = -1,
+    DefaultMario = 0,
+    InvincibleMario = 1
 } 

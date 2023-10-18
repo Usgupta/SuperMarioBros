@@ -1253,11 +1253,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7442192546039957793, guid: 306f1993d9fe347da87a8521d32caeed, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 34.6
+      value: 29.99
       objectReference: {fileID: 0}
     - target: {fileID: 7442192546039957793, guid: 306f1993d9fe347da87a8521d32caeed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.29
+      value: 0.49
       objectReference: {fileID: 0}
     - target: {fileID: 7442192546039957793, guid: 306f1993d9fe347da87a8521d32caeed, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4030,11 +4030,11 @@ PrefabInstance:
       objectReference: {fileID: 1807790707}
     - target: {fileID: 7442192546039957793, guid: 12d2990ef58844f97b2b0f4c2d95cff6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20.61
+      value: 37.21
       objectReference: {fileID: 0}
     - target: {fileID: 7442192546039957793, guid: 12d2990ef58844f97b2b0f4c2d95cff6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.6299999
+      value: 4.82
       objectReference: {fileID: 0}
     - target: {fileID: 7442192546039957793, guid: 12d2990ef58844f97b2b0f4c2d95cff6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4203,7 +4203,7 @@ MonoBehaviour:
   stateTimeElapsed: 0
   currentPowerupType: -1
   shouldBeNextState: -1
-  gameConstants: {fileID: 0}
+  gameConstants: {fileID: 11400000, guid: d221032b6f9964166a83faa111b7e330, type: 2}
 --- !u!4 &1937642983 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4046362969851040233, guid: 17e06ca2f27124b96a35e115b15ec0c1, type: 3}
@@ -4809,10 +4809,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mario
       objectReference: {fileID: 0}
+    - target: {fileID: 8174981293547516195, guid: 407d3f865f08e47e8a5d7a9019f4c0a5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8745287305881893434, guid: 407d3f865f08e47e8a5d7a9019f4c0a5, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 1c60e18475234425e96fc37a56706f1e, type: 2}
+      objectReference: {fileID: 9100000, guid: 20709d8f0f3854988a14bf977ffcdddf, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5320,11 +5324,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7442192546039957793, guid: 306f1993d9fe347da87a8521d32caeed, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 29.19
+      value: 12.43
       objectReference: {fileID: 0}
     - target: {fileID: 7442192546039957793, guid: 306f1993d9fe347da87a8521d32caeed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.29
+      value: -1.63
       objectReference: {fileID: 0}
     - target: {fileID: 7442192546039957793, guid: 306f1993d9fe347da87a8521d32caeed, type: 3}
       propertyPath: m_LocalPosition.z

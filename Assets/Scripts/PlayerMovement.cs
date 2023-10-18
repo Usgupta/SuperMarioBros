@@ -220,7 +220,17 @@ public class PlayerMovement : MonoBehaviour, IPowerupApplicable
                 }
             else
             {
-                playerDamaged.Invoke();
+                
+                if (this.gameObject.GetComponent<BuffStateController>().currentPowerupType == PowerupType.StarMan)
+                {
+                    Debug.Log("not supposed to do anything");
+                    StartCoroutine(other.gameObject.GetComponent<EnemyMovement>().FlipGoomba());
+                }
+                else
+                {
+                    Debug.Log("right now its this "+this.gameObject.GetComponent<BuffStateController>().currentPowerupType.ToString());
+                    playerDamaged.Invoke();
+                }
                 // MarioDie();
             }
         }
@@ -327,7 +337,9 @@ public class PlayerMovement : MonoBehaviour, IPowerupApplicable
 
     public void DamageMario()
     {
-        GetComponent<MarioStateController>().SetPowerup(PowerupType.Damage);
+        if (this.gameObject.GetComponent<BuffStateController>().currentPowerupType != PowerupType.StarMan)
+            // Debug.Log("dont do anythingggg stopp");
+            GetComponent<MarioStateController>().SetPowerup(PowerupType.Damage);
     }
 
     private void updateMarioShouldFaceRight(bool value)

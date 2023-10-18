@@ -12,6 +12,7 @@ public class EnemyMovement : MonoBehaviour
     // private float maxOffset = 5.0f;
     // private float enemyPatroltime = 2.0f;
     private int moveRight = -1;
+    private bool flipY = false;
     private Vector2 velocity;
 
     private Rigidbody2D enemyBody;
@@ -48,17 +49,21 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        if (Mathf.Abs(enemyBody.position.x - originalX) < gameConstants.goombaMaxOffset)
-        {// move goomba
-            Movegoomba();
-        }
-        else
+        if (!flipY)
         {
-            // change direction
-            moveRight *= -1;
-            ComputeVelocity();
-            Movegoomba();
+            if (Mathf.Abs(enemyBody.position.x - originalX) < gameConstants.goombaMaxOffset)
+            {// move goomba
+                Movegoomba();
+            }
+            else
+            {
+                // change direction
+                moveRight *= -1;
+                ComputeVelocity();
+                Movegoomba();
+            }
         }
+        
     }
 
     public void GameRestart()
@@ -67,6 +72,9 @@ public class EnemyMovement : MonoBehaviour
         {
             gameObject.SetActive(true);
         }
+
+        flipY = false;
+        gameObject.GetComponent<SpriteRenderer>().flipY = flipY;
         // if(enemyDestroyed)
         //     CreateEnemy();
         // Debug.Log(enemyDestroyed.ToString());
@@ -87,13 +95,18 @@ public class EnemyMovement : MonoBehaviour
     {   
         Debug.Log(collider.gameObject.name);
         if(collider.gameObject.name == "Mario" || collider.gameObject.name == "FireBall(Clone)"){
-            if(collider.attachedRigidbody.velocity.y <-0.5f || collider.gameObject.name == "FireBall(Clone)")
+            if(collider.attachedRigidbody.velocity.y <-0.5f)
             {
                 Debug.Log("stomp from other script");
                 EnemyAnimator.SetBool("goombaAlive",false);
                 increaseScore.Invoke(1);
                 // GameManager.instance.IncreaseScore(1);
                 EnemyAudio.PlayOneShot(EnemyAudio.clip);
+            }
+
+            if (collider.gameObject.name == "FireBall(Clone)")
+            {
+                StartCoroutine(FlipGoomba());
             }
         }
 
@@ -126,5 +139,15 @@ public class EnemyMovement : MonoBehaviour
         this.enemyDestroyed = false;
         Instantiate(gameObject,enemyParentTransform, false);
         Debug.Log("created");
-    } 
+    }
+
+    public IEnumerator FlipGoomba()
+    {
+        enemyBody.velocity = Vector2.zero;
+        flipY = !flipY;
+        gameObject.GetComponent<SpriteRenderer>().flipY = flipY;
+        gameObject.transform.rotation = Quaternion.Inverse(gameObject.transform.rotation);
+        yield return new WaitForSecondsRealtime(2);
+        gameObject.SetActive(false);
+    }
 }

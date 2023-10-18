@@ -16,7 +16,7 @@ public class TransformDecision : Decision
         // loop through state transform and see if it matches the current transformation we are looking for
         for (int i = 0; i < map.Length; i++)
         {
-            if (toCompareState == map[i].fromState && m.currentPowerupType == map[i].powerupCollected)
+            if (toCompareState == map[i].fromState && m.currentPowerupType == map[i].powerupCollected )
             {
                 return true;
             }
